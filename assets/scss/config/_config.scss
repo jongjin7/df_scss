@@ -4,16 +4,16 @@
 
 //  웹 폰트 폰트 페이스명, 파일명 정의
 $fonts-face-custom:(
-  //* 국문 폰트 페이스명: 파일명
-        SDGothicNeoR-Regular:        A400SDGothicNeoR-Regular,
-        SDGothicNeoSB-SemiBold:    A500SDGothicNeoSB-SemiBold,
-        SDGothicNeoB-Bold:             A600SDGothicNeoB-Bold,
+  //* 국문 폰트 페이스명: 폰트 파일명
+    SDGothicNeoR-Regular:        A400SDGothicNeoR-Regular,
+    SDGothicNeoSB-SemiBold:    A500SDGothicNeoSB-SemiBold,
+    SDGothicNeoB-Bold:             A600SDGothicNeoB-Bold,
 
-  //* 영문 폰트 페이스명: 파일명
-        NobelL-Light:                       A100NobelL-Light,
-        NobelBook-Regular:             A200NobelBook-Regular,
-        NobelR-Regular:                   A300NobelR-Regular,
-        NobelB-Bold:                        A400NobelB-Bold
+  //* 영문 폰트 페이스명: 폰트 파일명
+    NobelL-Light:                       A100NobelL-Light,
+    NobelBook-Regular:             A200NobelBook-Regular,
+    NobelR-Regular:                   A300NobelR-Regular,
+    NobelB-Bold:                        A400NobelB-Bold
 ) !global !default;
 
 

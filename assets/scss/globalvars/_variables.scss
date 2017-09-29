@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import "config";
+@import "../config";
 
 //## 기본 SCSS 변수 모음
 // device mode
@@ -12,8 +12,8 @@ $psd-width:                360px !default; // psd 가로 정의
 $psd-height:               640px !default; // psd 세로 정의
 
 //  컬러 정의
-$color-point:        #f00; //강조 컬러
-$color-feed:          #1D1DC5; //피드백 컬러
+$color-point:        #f00; // 강조 컬러
+$color-feed:          #1D1DC5; // 피드백 컬러
 $color-white:         #fff; //
 $color-light:          #fafafa; //
 $color-gray:           #d4d4d4; //
@@ -29,24 +29,24 @@ $color-text-over:      #666 !default; // 폰트 마우스 오버 컬러
 
 
 // defauts fonts 속성
-$web-font-path: '/assets/fonts/' !default; //  웹 폰트 경로 정의: CSS파일 기준의  경로
+$web-font-path: '/assets/fonts/' !default; // 웹 폰트 경로 정의
 $fonts-default: (
-     font-name:    unquote("'Malgun Gothic', '맑은 고딕', AppleGothicNeoSD, 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', Dotum, 돋움, 굴림, arial, sans-serif"),
-     font-size:      $default-font-size,
+     font-name:     unquote("'Malgun Gothic', '맑은 고딕', AppleGothicNeoSD, 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', Dotum, 돋움, 굴림, arial, sans-serif"),
+     font-size:     $default-font-size,
      line-height:   $default-line-height
 ) !global !default;
 
 $fonts-default-size: map_get($fonts-default, font-size);
 
 
-//== Media queries breakpoints
+//## Media queries breakpoints
 
 // 모바일 구간
-$screen-mobile-portrait:                 map_get($custom-media-break-points, mobile-portrait);
+$screen-mobile-portrait:              map_get($custom-media-break-points, mobile-portrait);
 $screen-mobile-landscape:             map_get($custom-media-break-points, mobile-landscape);
 
 // 태블릿 구간
-$screen-tablet-portrait:                  map_get($custom-media-break-points, tablet-portrait);
+$screen-tablet-portrait:               map_get($custom-media-break-points, tablet-portrait);
 $screen-tablet-landscape:              map_get($custom-media-break-points, tablet-landscape);
 
 // Desktop PC 구간
@@ -58,8 +58,8 @@ $screen-pc-x-bigger:              map_get($custom-media-break-points, pc-x-bigge
 
 // So media queries don't overlap when required, provide a maximum
 $screen-mobile-max:              ($screen-tablet-portrait - 1) !default;
-$screen-tablet-portait-max:              ($screen-tablet-landscape - 1) !default;
-$screen-pc-max:              ($screen-pc-bigger - 1) !default;
+$screen-tablet-portait-max:      ($screen-tablet-landscape - 1) !default;
+$screen-pc-max:                  ($screen-pc-bigger - 1) !default;
 
 // IE8이상 지원
 $legacy-support-for-ie8: false !global;
