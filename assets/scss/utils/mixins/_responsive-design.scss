@@ -1,0 +1,85 @@
+///*********************///
+///* responsive design *///
+///*********************///
+@mixin breakpoint($point) {
+  @if $point == dtopplus {
+    @media screen and (min-width: 981px) {
+      @content;
+    }
+  }
+  @else if $point == tabplus {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point == smalldtop {
+    @media screen and (min-width: 981px) and (max-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $point == largephone {
+    @media screen and (min-width: 559px) and (max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $point == tabandless {
+    @media screen and (max-width: 980px) {
+      @content;
+    }
+  }
+  @else if $point == galaxyten {
+    @media only screen and (min-width: 1200px) and (max-width: 1280px) and (orientation: landscape) {
+      @content;
+    }
+  }
+  @else if $point == mobileandless {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $point == smobileandless {
+    @media screen and (max-width: 370px) {
+      @content;
+    }
+  }
+  @else if $point == ipadlandscape {
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-above($mq) {
+  @media (min-width: $mq) {
+    @content;
+  }
+}
+
+@mixin respond-between($mq-min, $mq-max) {
+  @media (min-width: $mq-min) and (max-width: $mq-max) {
+    @content;
+  }
+}
+
+@mixin respond-below($mq) {
+  @media (max-width: $mq) {
+    @content;
+  }
+}
+
+//utilities for responsive design
+@mixin lg {
+  @include respond-above($screen-md) {
+    @include grid-settings-lg;
+
+    @content;
+  }
+}
+
+@mixin sm {
+  @include respond-below($screen-md - 1) {
+    @include grid-settings-sm;
+
+    @content;
+  }
+}

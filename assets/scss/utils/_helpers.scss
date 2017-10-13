@@ -1,0 +1,104 @@
+@charset "euc-kr";
+
+/* Helper classes */
+// --------------------------------------------------------------------------
+
+.blind{
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  text-indent: -9999px !important;
+  font-size: 0 !important;
+  opacity:0;
+  overflow: hidden !important;
+}
+
+//  폼 내용 미 입력시 활성화되는 텍스트 홀더
+.alert-holder {
+  padding-top:10px;
+  @at-root .mobile &{
+    padding-top:calc-unit(10px);
+  }
+  padding-left:1px;
+  @include font('', 12px, 1);
+  color:$color-point;
+}
+
+
+// 포인트 컬러
+.txt-hlight{ color:$color-point !important; }
+
+
+
+// hide & show
+.hide{display:none !important;}
+.show{display:block !important;}
+.visible-hide { visibility: hidden !important;}
+.visible-show { visibility: visible !important;}
+
+// align
+.float-l {float: left;}
+.float-r {float: right;}
+
+.talign-l{text-align: left;}
+.talign-c{text-align: center;}
+.talign-r{text-align: right;}
+
+// 줄바꿈
+@if(not $is-mobile-mode){
+  br._m{display: none;}
+}@else {
+  br {display: none;}
+  br._m {display: block;}
+}
+
+//text-style
+.upper-case{
+  text-transform: uppercase !important;
+}
+.lower-case{
+  text-transform: lowercase !important;
+}
+
+// Clearfix: contain floats
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// 로딩전 초기화면 페이지
+#app.loading {
+  #main {
+    //width: 100%!important;
+    position: relative; height: 3000px; background-color: white; z-index: 99;
+  }
+}
+
+.contents, .main, .models {
+  #app.loading{
+    #main {
+      width: 100%!important;
+      position: relative; height: 3000px; background-color: white; z-index: 99;
+    }
+
+    #utils {
+      .quick-menu-wrap {
+        right: -100px;
+      }
+    }
+  }
+}
+
+.loading-con {
+  //width: 100%!important;
+  position: absolute; height: 3000px; width: calc(100%); background-color: white; z-index: 99;
+}
+
+
