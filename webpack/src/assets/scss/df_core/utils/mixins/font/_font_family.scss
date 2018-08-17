@@ -1,0 +1,28 @@
+/// ** Font family **
+/// @param {Value}
+/// @디자인 스타일 가이드에 따른 폰트 타입 정의
+/// @group fonts
+
+@mixin font-family($type: null){
+    @if($type == 'common'){
+
+    }@else if($type == 100){ // thin
+        font-family: $fonts-face-custom-100;
+    }@else if($type == 300){ //light
+        font-family: $fonts-face-custom-300;
+    }@else if($type == 400){ // regular
+        font-family: $fonts-face-custom-en-regular,$fonts-face-custom-400;
+    }@else if($type == 500){ // midium
+        font-family: $fonts-face-custom-500;
+    }@else if($type == 700){ // bold
+        font-family: $fonts-face-custom-en-bold, $fonts-face-custom-700;
+    }@else if($type == 900){ // black
+        font-family: $fonts-face-custom-900;
+    }@else if($type == e400){ // notosans regular
+        font-family: $fonts-face-custom-en-regular;
+    }@else if($type == e700){ // notosans bold
+        font-family: $fonts-face-custom-en-bold;
+    }@else{
+        @error '유효하지 않는 폰트 타입입니다.';
+    }
+}

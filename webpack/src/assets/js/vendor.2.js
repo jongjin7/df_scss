@@ -1,0 +1,1 @@
+console.log('custom vendor 2!!!')

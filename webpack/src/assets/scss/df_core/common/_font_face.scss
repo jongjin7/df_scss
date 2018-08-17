@@ -1,0 +1,16 @@
+@charset "utf-8";
+// FontFace 생성
+@each $font-key, $font-name in $fonts-face-custom {
+  $font-path  : $path-web-font + $font-name;
+
+  @font-face {
+    font-family: $font-key;
+    src: url($font-path + '.woff2') format('woff2'), // Edge14, Chrome, Firefox, andoroid(chrome) 50~
+    url($font-path + '.woff') format('woff'); // Modern Browsers
+
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+  }
+}
+
