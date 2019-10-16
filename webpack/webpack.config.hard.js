@@ -16,7 +16,7 @@ module.exports = {
             './js/vendor.1.js',
             './js/vendor.2.js',
             './scss/globals.scss',
-            './scss/style.scss',
+            './scss/custom.scss',
         ],
         main: ['./js/app.js'],
         admin: './js/admin.js',
@@ -24,7 +24,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist/dev/assets'),
         filename: 'js/[name].bundle.js',
-        //publicPath: '/'
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -140,10 +140,15 @@ module.exports = {
             __LANG__:'ko',
         }),
     ],
-
-    // devServer: {
-    //     hot: false,
-    //     inline:false,
-    // }
+    devServer: {
+        open: true,
+        //writeToDisk: true,
+        //contentBase: path.join(__dirname, '/'),
+        //watchContentBase: true,
+        port: 8999,
+        // historyApiFallback: {
+        //     historyApiFallback: true
+        // }
+    }
 }
 

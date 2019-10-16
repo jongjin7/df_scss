@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 //  Author: Rafal Bromirski
 //  www: http://rafalbromirski.com/
 //  github: http://github.com/paranoida/sass-mediaqueries
@@ -154,24 +156,6 @@
     }
 }
 
-// --- iphone4 -----------------------------------------------------------------
-
-@mixin iphone4($orientation: false) {
-    $min: 320px;
-    $max: 480px;
-    $pixel-ratio: 2;
-    $aspect-ratio: '2/3';
-
-    @include mq(
-            $min-device-width: $min,
-            $max-device-width: $max,
-            $orientation: $orientation,
-            $device-aspect-ratio: $aspect-ratio,
-            $-webkit-device-pixel-ratio: $pixel-ratio
-    ) {
-        @content;
-    }
-}
 
 // --- iphone5 -----------------------------------------------------------------
 
@@ -221,21 +205,6 @@
             $max-device-width: $max,
             $orientation: $orientation,
             $-webkit-device-pixel-ratio: $pixel-ratio
-    ) {
-        @content;
-    }
-}
-
-// --- ipad (all) --------------------------------------------------------------
-
-@mixin ipad($orientation: false) {
-    $min: 768px;
-    $max: 1024px;
-
-    @include mq(
-            $min-device-width: $min,
-            $max-device-width: $max,
-            $orientation: $orientation
     ) {
         @content;
     }

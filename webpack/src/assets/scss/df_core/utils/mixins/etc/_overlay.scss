@@ -1,7 +1,6 @@
 @mixin overlay{
   display: none;
-  position:fixed; left:0; top:0;
-  width:100%;
+  position:fixed; left:0; top:0; right:0; bottom:0;
   background: #000;
   opacity: 0.8;
 }

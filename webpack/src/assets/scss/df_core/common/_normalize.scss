@@ -1,3 +1,9 @@
+@charset "utf-8";
+
+//form elements link
+@import "elements/buttons-list";
+@import "elements/text-inputs-list";
+
 /* ! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 // Normalize.css
@@ -215,10 +221,7 @@ select {
 // 2. Correct inability to style clickable `input` types in iOS.
 // 3. Improve usability and consistency of cursor style between images-type
 //    `input` and etcs.
-button,
-html input[type="button"], // 1
-input[type="reset"],
-input[type="submit"] {
+#{$_buttons-list}{
   -webkit-appearance: button; // 2
   cursor: pointer; // 3
 }

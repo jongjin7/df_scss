@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>메인에서 얌얌1111</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- favicon Html -->
+    <link rel="stylesheet" href="./assets/css/globals.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    {% import 'inc_head.html' as headAsset %} {{ headAsset.active('home')}}
+    <!-- common.js -->
+    <script src="./assets/js/dsf.vendors.js"></script>
+</head>
+<body>
+걸프 HTML 템플릿 모듈을 이용한 Static page생성
+
+{% include "inc_header.html" %}
+    <h1>안녕?! 여긴 index page 입니다. 메롱~</h1>
+    {% import 'inc_footer.html' as nav %}{{nav.active('home')}}
+
+<h1>Posts HTML 출력을 해보자 그럼 </h1>
+
+{% set items = [
+{ name: 'james', type: 'green' },
+{ name: 'john', type: 'blue' },
+{ name: 'jim', type: 'blue' },
+{ name: 'jessie', type: 'green' }
+]
+%}
+
+{% for type, items in items | groupby("type") %}
+<b>{{ type }}</b> :
+    {% for item in items %}
+        {{ item.name }}
+    {% endfor %}<br>
+{% endfor %}
+
+    <div>어쩌다가 저쩌다가</div>
+    <p>If you have any interest whatsoever about British Canals and narrowboats, then this site is a must for you.</p>
+    <p>This site contains a brief history and a selection of photographs about our narrowboat Dvbris. Also you will find some links to other sites on the Internet.</p>
+    <p>To continue click <a href="about.html">here.</a></p>
+    <p align="center"><img src="images/Boat.JPG" border="2" style="max-width:100%"></p>
+
+<table>
+    <tr>
+        <td class="td-name">셀내용11111</td>
+        <td class="td-name">셀내용2</td>
+        <td class="td-name">셀내용3222</td>
+    </tr>
+</table>
+
+<script src="./assets/js/index.js"></script>
+<script src="./assets/js/sub.js"></script>
+
+
+</body>
+</html>
+

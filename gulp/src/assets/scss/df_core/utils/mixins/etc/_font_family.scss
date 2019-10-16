@@ -1,0 +1,13 @@
+@charset "utf-8";
+/// ** Font family **
+/// @param {Value}
+
+@mixin font-family($type: null){
+    @if(length($type) < 2 ){
+        font-family: $type;
+    }@else{
+        //@debug 'leng' type_of($type) length($type) ;
+        // 다중 폰트 처리
+        font-family: nth($type,1), nth($type,2);
+    }
+}

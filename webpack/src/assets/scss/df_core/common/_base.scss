@@ -1,4 +1,5 @@
-// SiteBase.css
+@charset "utf-8";
+
 /* ! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/
  * Some were added by Designfever.com
  * update : 2017/03/07
@@ -115,11 +116,11 @@ i, cite, em, var, address, dfn {
 a {
     &:link, &:visited, &:active {
         text-decoration: none;
-        color: $base;
+        color: #555;
     }
 
     &:hover {
-        color: $base;
+        color: #555;
     }
 }
 
@@ -178,30 +179,35 @@ input[type="checkbox"] {
 
 // input style
 #{$_text-inputs-list}{
-    border: 1px solid #666;
+    border: 1px solid #888;
     outline: none;
     vertical-align: baseline;
     &::placeholder {
-        color: #95989A;
+        color: #555;
+    }
+}
+#{$_text-inputs-list} {
+    &:invalid{
+        border: 1px solid red;
     }
 }
 
 select {
-    border: 1px solid #bbb;
+    border: 1px solid #888;
 }
 
 textarea {
-    border: 1px solid #fff;
+    border: 1px solid white;
     resize: none;
 }
 
 #{$_text-inputs-list}, select {
     &:focus{
-        border: 1px solid #000;
+        border: 1px solid blue;
     }
     &:disabled{
-        background-color: #fff;
-        color: #000;
+        background-color: #444;
+        color: #888;
     }
 }
 
@@ -360,7 +366,7 @@ iframe[name ^='google_']{
 
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: 1px solid #555;
         page-break-inside: avoid;
     }
 
@@ -390,4 +396,11 @@ iframe[name ^='google_']{
     h3 {
         page-break-after: avoid;
     }
+}
+
+.wa {
+    text-indent: -9999px;
+    position: absolute;
+    top: -9999px;
+    font-size: 0;
 }

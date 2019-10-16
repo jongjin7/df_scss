@@ -15,7 +15,7 @@ module.exports = {
             './js/vendor.1.js',
             './js/vendor.2.js',
             './scss/globals.scss',
-            './scss/style.scss',
+            './scss/custom.scss',
         ],
         main: ['./js/app.js'],
         admin: './js/admin.js',
@@ -35,13 +35,11 @@ module.exports = {
                             loader: 'css-loader',
                             options: {
                                 url: true,
-                                //minimize: true,
+                                minimize: true,
                             }
                         },
                         {
-                            loader: 'resolve-url-loader',
-                            // ExtractTextPlugin을 이용하여 SCSS로더 컴파일할때 생성되는 소스맵 경로가 유실되므로,
-                            // 이 로더를 이용하여 SCSS로더에 넘어오는 소스맵 경로를 재설정함
+                            loader:'postcss-loader'
                         },
                         {
                             loader: 'sass-loader',

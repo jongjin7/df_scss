@@ -13,9 +13,9 @@ module.exports = {
         commons:[
             './js/vendor.1.js',
             './js/vendor.2.js',
-            
+
             './scss/globals.scss',
-            './scss/style.scss',
+            './scss/custom.scss',
         ],
         main: ['./js/app.js',],
         admin: './js/admin.js',
@@ -39,6 +39,9 @@ module.exports = {
                             minimize: false,
                             sourceMap: true,
                         }
+                    },
+                    {
+                        loader:'postcss-loader'
                     },
                     {
                         loader: 'resolve-url-loader',
@@ -141,15 +144,21 @@ module.exports = {
     devServer: {
         hot: true,
         inline: true,
-        contentBase: path.resolve(__dirname, 'dist/'),
+        //contentBase: path.resolve(__dirname, 'dist/'),
         //compress: true,
         //port: 3002,
-        open:true,
+        open:'Chrome',
         //openPage:'index.html',
         //index:'index.html',
         //filename:'filename',
         //publicPath: '/',
-        //historyApiFallback: true,
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/$/, to: '/index.html' },
+                { from: '/html/admin.html', to: '/admin.html' },
+                { from: /./, to: '/404.html' }
+            ]
+        },
         // proxy: {
         //     "**": "http://localhost:3000"
         // }

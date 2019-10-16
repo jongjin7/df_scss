@@ -1,3 +1,4 @@
+@charset "utf-8";
 // functions
 @import "functions/del_unit";
 @import "functions/vw_calculator";
@@ -8,18 +9,18 @@
 @import "mixins/background/bg_attr";
 @import "mixins/background/bg_img";
 
-@import "mixins/font/font_family";
-@import "mixins/font/font_style";
-@import "mixins/font/line_height";
+@import "mixins/etc/font_family";  //커스텀 스타일
+@import "../../custom/common/responsive/font_unit_conversion";
+@import "mixins/etc/line_height";
+
+@import "../../custom/common/responsive/vw_conversion";
 
 @import "mixins/etc/clearfix";
 @import "mixins/etc/placeholder";
 @import "mixins/etc/text_overflow";
-@import "mixins/etc/vw_conversion";
-@import "mixins/etc/media_queries";
 @import "mixins/etc/blind";
 @import "mixins/etc/overlay";
-
+@import "mixins/etc/media_queries";
 @import "mixins/icon/triangle";
 @import "mixins/icon/svg";
 

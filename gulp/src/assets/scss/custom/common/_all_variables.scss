@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+// 사이트 변수
+@import "variables/common";
+@import "variables/define_fonts";
+@import "variables/breakpoint";
+
+// custom-mixin
+@import "utils/transitions";
+@import "utils/common_mixin";
+
+
+
