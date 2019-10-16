@@ -1,0 +1,127 @@
+{% macro active(activePage = null) -%}
+
+<header class="sdp-header" id="el-sdp-header">
+    <div class="inner-wrap">
+
+        <nav class="navbar-wrap fixed-top">
+            <div class="bg-header bg-header-cover"></div>
+            <div class="navbar navbar-expand-md">
+                <div class="sdp-logo">
+                    <a class="link-logo" href="../" title="">
+                    <span>
+                        <i class="s-ico s-ico-logo-w"></i>
+                    </span>
+                    </a>
+                </div>
+
+                <button id="toggle-mobile-gnb" class="btn toggle-mobile-menu" type="button" data-toggle="collapse"
+                        aria-controls="mobile navbar collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-box">
+                    <i></i>
+                </span>
+                    <em class="sr-only">Toggle navigation</em>
+                </button>
+
+                <!-- mobile / global-Search-button -->
+                <button type="button" class="btn btn-global-search is-mobile" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Global Search</span>
+                    <span class="i-box">
+                    <i class="s-ico s-ico-schzoom"></i>
+                    <i class="icon-close"><i></i></i>
+                </span>
+                </button>
+
+                <div class="hd-collapse navbar-collapse" id="global-nav-collapse">
+                    <div id="nav-gnb" class="gnb main-nav">
+                        <ul class="navbar-nav navbar-depth1">
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link{% if activePage[0] == 1 %} active {% endif %}" href=""><span>Menu1</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link{% if activePage[0] == 2 %} active {% endif %}" href=""><span>Menu2</span></a>
+                                <div class="navbar-depth2-wrap">
+                                    <ul class="navbar-nav navbar-depth2 sm-col-3">
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 2 and activePage[1] == 01 %} active {% endif %}"><span>sub1</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 2 and activePage[1] == 02 %} active {% endif %}"><span>sub2</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 2 and activePage[1] == 03 %} active {% endif %}"><span>sub3</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link {% if activePage[0] == 3 %} active {% endif %}" href=""><span>Menu3</span></a>
+                                <div class="navbar-depth2-wrap">
+                                    <ul class="navbar-nav navbar-depth2 sm-col-1">
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 3 and activePage[1] == 01 %} active {% endif %}"><span>sub1</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 3 and activePage[1] == 02 %} active {% endif %}"><span>sub2</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 3 and activePage[1] == 03 %} active {% endif %}"><span>sub3</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link{% if activePage[0] == 4 %} active {% endif %}" href=""><span>Menu4</span></a>
+                                <div class="navbar-depth2-wrap">
+                                    <ul class="navbar-nav navbar-depth2 sm-col-1">
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 4 and activePage[1] == 01 %} active {% endif %}"><span>sub1</span></a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link depth2-link{% if activePage[0] == 4 and activePage[1] == 04 %} active {% endif %}"><span>sub2</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="common-menu main-nav">
+                        <ul class="navbar-nav navbar-depth1">
+                            <li class="nav-item nav-item-search">
+                                <button type="button" class="btn btn-global-search" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Global Search</span>
+                                    <span class="i-box">
+                                    <i class="s-ico s-ico-schzoom"></i>
+                                    <i class="icon-close"><i></i></i>
+                                </span>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link{% if activePage[0] == 6 %} active {% endif %}" href=""><span>Common1</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link{% if activePage[0] == 7 %} active {% endif %}" href=""><span>Common2</span></a>
+                            </li>
+                            <!-- before login -->
+                            <!--<li class="nav-item">
+                                <button class="toggle-submenu"></button>
+                                <a class="nav-link depth1-link" href="#"><span>Sign-In</span></a>
+                            </li>-->
+
+                            <!-- after login -->
+                            <li class="nav-item nav-item-dashboard">
+                                <button class="toggle-submenu"></button>
+                                <a  class="nav-link depth1-link nav-link-dashboard{% if activePage[0] == 8 %} active {% endif %}" href=""><span>Admin</span></a>
+                                <div class="navbar-depth2-wrap dropdown-dash-menu">
+                                    <ul class="navbar-nav navbar-depth2">
+                                        <li class="nav-item">
+                                            <a class="nav-link depth2-link" href="#"><span>Account</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link depth2-link" href="#"><span>Log out</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</header>
+{% endmacro %}
+

@@ -1,0 +1,689 @@
+.mkdown-docs{
+    & > strong{
+        & + h1{
+            margin-top: calcRem(8px);
+        }
+    }
+
+    h1 {
+        margin-bottom: calcRem(24px);
+        color: $black;
+
+        & + .sdp-doc-nav-tabs{
+
+        }
+    }
+
+    h2{
+        color: $black;
+        & + p{
+            margin-top: calcRem(16px);
+        }
+
+        & + ol,
+        & + ul,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion,
+
+        & + p + ol,
+        & + p + ul,
+        & + p + table,
+        & + p + .code-toolbar,
+        & + p + .row,
+        & + p + .btn-doc-cta,
+        & + p + .doc-img-content,
+        & + p + .sdp-doc-accordion{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    h3{
+        font-family: $fonts-bold;
+        font-size: 1rem;
+        color: $black;
+
+        & + h2,
+        &:not(:first-child){
+            margin-top: calcRem(40px);
+        }
+
+        & + p,
+        & + ol,
+        & + ul,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .sdp-doc-accordion,
+        & + .doc-img-content{
+            margin-top: calcRem(16px);
+        }
+    }
+
+    h4,h5,h6{
+        margin-top: calcRem(16px);
+        font-family: $fonts-bold;
+        color: $black;
+
+        & + p,
+        & + ol,
+        & + ul,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .sdp-doc-accordion,
+        & + .doc-img-content{
+            margin-top: calcRem(16px);
+        }
+    }
+
+    h4{
+        font-size: calcRem(16px);
+    }
+
+    p{
+        & + h2,
+        & + h3{
+            margin-top: calcRem(40px);
+        }
+        & + p,
+        & + ol,
+        & + ul,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .sdp-doc-accordion{
+            margin-top: calcRem(16px);
+        }
+
+        & + .doc-img-content{
+            margin-top: calcRem(24px);
+        }
+
+        & + .btn-doc-cta,
+        & + .faq-filter{
+            margin-top: calcRem(40px);
+        }
+
+        & > img{
+            max-width: 100%;
+
+            @include media-breakpoint-down(sm){
+                width: 100%;
+            }
+        }
+    }
+
+    strong{
+        color: $black;
+    }
+
+    code{
+        color: $indigo;
+    }
+
+
+    a{
+        font-family: $fonts-bold;
+        color:$indigo;
+        &[target="_blank"]{
+            &:after{
+                display: inline-block;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-left: calcRem(-4px);
+                background:{repeat:no-repeat; size:100%; position:center center; image:url("../img/common/icon_gui/icon_arrow_outlink_@indigo.svg")};
+                content: '';
+                vertical-align: middle;
+            }
+        }
+    }
+
+    hr {
+        margin: calcRem(76px 0 80px);
+        border-top-color: $gray-100;
+
+        @include media-breakpoint-down(md){
+            width: 110vw;
+            transform: translateX(-10vw);
+            margin: calcRem(80px 0 44px);
+        }
+
+        @include media-breakpoint-up(lg){
+            width: 200vw;
+            transform: translateX(-100vw);
+            margin: calcRem(76px 0 80px);
+        }
+    }
+
+    ul, ol{
+        margin: 0;
+        padding: 0;
+        //background: skyblue;
+
+        li {
+            display: block;
+            position: relative;
+            list-style: none;
+
+            ol, ul{
+                margin-top: calcRem(16px);
+
+                &:last-child{
+                    margin-bottom: calcRem(16px);
+                }
+            }
+
+            * > p:nth-last-child(2) + p:nth-last-child(1){
+                margin-bottom: calcRem(16px);
+            }
+
+            blockquote > p:nth-last-child(2) + p:nth-last-child(1){
+                margin-bottom: 0;
+            }
+
+        }
+
+        // 다음 컨테이너
+        & + h3,
+        & + p,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion {
+            margin-top: calcRem(16px);
+        }
+
+        & + h2,
+        & + ul,
+        & + ol,
+        & + table{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    ol {
+        margin-left: calcRem(-5px);
+        counter-reset: order-list;
+        & > li {
+            padding-left: calcRem(22px);
+
+            &:before {
+                position: absolute; left:0; top:0;
+                display: block;
+                width: calcRem(16px);
+                counter-increment: order-list;
+                content: counter(order-list) ".";
+                text-align: right;
+            }
+        }
+    }
+
+    ul {
+        & > li {
+            padding-left: calcRem(12px);
+            &:before {
+                position: absolute; left:0; top:calcRem(10px);
+                display: block;
+                width: calcRem(4px);
+                height: calcRem(4px);
+                background-color: $gray-400;
+                border-radius: 50%;
+                vertical-align: middle;
+                content: '';
+            }
+
+
+        }
+
+    }
+
+    & > ul, & > ol{
+        li{
+            & > *:nth-last-child(2) + *:nth-last-child(1){
+                margin-bottom: calcRem(40px);
+            }
+        }
+
+    }
+
+    // 회색 배경 컨테이너
+    blockquote {
+        background: #F7F7F7;
+        margin:0;
+        padding: calcRem(40px);
+        text-indent:0;
+
+        // 컨테이너 안에 들어오는 다른 컴포넌트 여백 설정
+        & > *:first-child{
+            margin-top: 0;
+        }
+
+        & > *:last-child{
+            margin-bottom: 0;
+        }
+
+        ul, ol{
+            margin-top: calcRem(24px);
+            li{
+                & > p:nth-last-child(2) + p:nth-last-child(1){
+                    margin-bottom: calcRem(16px);
+                }
+            }
+        }
+
+        // 다음에 오는 컴포넌트와의 여백
+        & + h3,
+        & + p,
+        & + ul,
+        & + ol,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion {
+            margin-top: calcRem(24px);
+        }
+
+        & + h2{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    table{
+        width:100%;
+        border:1px solid $gray-100;
+        caption{
+            display: none;
+        }
+        th,td{
+            border: 1px solid $gray-100;
+            padding: calcRem(12px 24px);
+
+            @include hdpi(1.5){
+                border-width: 0.666px;
+            }
+            @include hdpi(2){
+                border-width: 1px;
+            }
+
+        }
+
+        & + h3,
+        & + p,
+        & + ul,
+        & + ol,
+        & + table,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion{
+            margin-top: calcRem(24px);
+        }
+
+        & + h2{
+            margin-top: calcRem(40px);
+        }
+
+    }
+
+    // 커스텀 마크다운
+
+    .code-toolbar{
+        & + p,
+        & + table,
+        & + blockquote,
+        & + ol,
+        & + ul,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .sdp-doc-accordion,
+        & + .doc-img-content{
+            margin-top: calcRem(40px);
+        }
+
+        & + h2{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    .pdf-download{
+        margin: calcRem(24px 0 16px);
+        line-height: 1;
+
+        .btn-docs-download{
+            display: inline-block;
+            position: relative;
+            margin: calcRem(-8px);
+            padding-right:calcRem(22px);
+            font-family: $fonts-bold;
+            color: $indigo;
+            @include transition($btn-transition);
+
+            &:after{
+                display: block;
+                position: absolute;
+                width:calcRem(24px);
+                height:calcRem(24px);
+                top: 50%;
+                right: 0;
+                margin-top: calcRem(-12px);
+                background:{repeat:no-repeat; size:100%; position:center center; image:url("../img/common/icon_gui/icon_arrow_download_@indigo.svg")};
+                transform-origin: center center;
+                @include transition($btn-transition);
+                content: '';
+            }
+        }
+
+        & + h2{
+            margin-top:  calcRem(40px);
+
+            & + p,
+            & + table,
+            & + blockquote,
+            & + ol,
+            & + ul,
+            & + .alert,
+            & + .code-toolbar,
+            & + .row,
+            & + .btn-doc-cta,
+            & + .sdp-doc-accordion,
+            & + .doc-img-content{
+                margin-top: calcRem(16px);
+            }
+        }
+
+        & + p,
+        & + table,
+        & + blockquote,
+        & + ol,
+        & + ul,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .sdp-doc-accordion,
+        & + .doc-img-content{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    // 이미지 박스
+    .doc-img-content{
+        .doc-img-holder{
+            position: relative;
+            width:100%;
+            text-align: center;
+
+            img{
+                max-width: 100%;
+            }
+
+            + p,
+            + small{
+                margin-top: calcRem(16px);
+            }
+        }
+
+        // 연속된 이미지 컨텐츠 컴포넌트
+        & + p,
+        & + .doc-img-content{
+            margin-top: calcRem(48px);
+        }
+
+
+        // 커스텀 마크다운 : 썸네일형
+        .doc-cont-list{
+            display: flex;
+            margin:0; padding:0;
+            flex-direction: column;
+
+            .doc-cont-item{
+                display: flex;
+                &:not(:first-of-type){
+                    margin-top: calcRem(24px);
+                }
+            }
+
+            // list width: 50%
+            &.half-list{
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: start;
+                flex-wrap: wrap;
+                .doc-cont-item{
+                    padding-left: 0;
+                    text-indent: 0;
+
+                    &:before{
+                        display: none;
+                    }
+                    flex-direction: column;
+                    width: calc(50% - 20px);
+
+                    &:nth-child(1),
+                    &:nth-child(2){
+                        margin-top: 0;
+                    }
+
+                    .cont-item{
+                        margin-top: 0;
+                        & + .cont-item{
+                            margin-top: calcRem(16px);
+                        }
+                    }
+                }
+            }
+
+
+            // 리스트 속 아이템 50: 50
+            &.item-half{
+                .doc-cont-item{
+                    padding-left: 0;
+                    text-indent: 0;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &:before{
+                        display: none;
+                    }
+                    .cont-item{
+                        margin-top: 0;
+                        width: calc(50% - 20px);
+
+                        &:last-child{
+                            text-indent: -18px;
+                            padding-left: 21px ;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm){
+            .doc-img-holder{
+                img{
+                    width: 100%;
+                }
+            }
+            .doc-cont-list{
+                &.half-list{
+                    .doc-cont-item {
+                        width: 100%;
+
+                        &:not(:first-child){
+                            margin-top: calcRem(40px);
+                        }
+                    }
+                }
+
+                &.item-half{
+                    .doc-cont-item{
+                        display: block;
+                        &:not(:first-child){
+                            margin-top: calcRem(40px);
+                        }
+                        .cont-item{
+                            width: 100%;
+                            &:last-child{
+                                text-indent:0;
+                                margin-top: calcRem(16px);
+                                padding-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        & + h3,
+        & + p,
+        & + ul,
+        & + ol,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion{
+            margin-top: calcRem(16px);
+        }
+
+        & + h2{
+            margin-top: calcRem(40px);
+        }
+    }
+
+
+    // 커스텀 마크다운 : 카드 A 타입
+    .sdp-card-group{
+        &.direction-col{
+            .sdp-card{
+                margin-top: 0;
+                margin-bottom: 0;
+                
+                a{
+                    &:after{
+                        display: none;
+                    }
+                }
+
+                li{
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm){
+                .sdp-card{
+                    width: 100%;
+                    margin-bottom: 0;
+                    &:not(:first-child){
+                        margin-top: calcRem(24px);
+                    }
+                }
+            }
+
+            @include media-breakpoint-only(md){
+                .sdp-card{
+                    .inner-card{
+                        height: calcRem(560px);
+                    }
+                }
+            }
+
+            @include media-breakpoint-up(md){
+                .sdp-card{
+                    width:50%;
+                    margin-top: calcRem(20px);
+
+
+                    &:nth-child(1), &:nth-child(2){
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+
+        & + h3,
+        & + p,
+        & + ul,
+        & + ol,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion{
+            margin-top: calcRem(16px);
+        }
+
+        & + h2{
+            margin-top: calcRem(40px);
+        }
+    }
+
+
+
+    // docs download/link
+    .btn-doc-cta{
+
+        & + p,
+        & + ul,
+        & + ol,
+        & + blockquote,
+        & + .alert,
+        & + .code-toolbar,
+        & + .row,
+        & + .btn-doc-cta,
+        & + .doc-img-content,
+        & + .sdp-doc-accordion{
+            margin-top: calcRem(16px);
+        }
+
+        & + h2,
+        & + h3{
+            margin-top: calcRem(40px);
+        }
+    }
+
+    // docs accordion
+    .sdp-doc-accordion{
+        .card-header{
+            button{
+                .rgt-txt{
+                    color: $gray-200;
+                }
+            }
+        }
+    }
+
+}

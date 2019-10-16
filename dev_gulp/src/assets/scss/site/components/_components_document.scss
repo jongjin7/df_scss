@@ -1,0 +1,506 @@
+.sdp-ly-document{
+    &.sdp-container{
+        .main-container{
+            // calendar
+            .sdp-doc-calendar-control{
+                display: flex;
+                margin-bottom: calcRem(28px);
+
+                .btn-ctrl{
+                    width: calcRem(24px);
+                    height: calcRem(24px);
+                    padding:0;
+                    &:before{
+                        display: block;
+                        width: 100%; height: 100%;
+                        content:'';
+                        background:{
+                            image: url('../img/common/icon_gui/icon_arrow_down.svg');
+                            repeat: no-repeat; size:100%; position: center center;
+                        }
+                    }
+                    &.prev{
+                        &:before{
+                            transform: rotate(-270deg);
+                        }
+                    }
+                    &.next{
+                        &:before{
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+                    &:hover{
+                        &:before{
+                            background-image: url('../img/common/icon_gui/icon_arrow_down_@indigo.svg');
+                        }
+                    }
+                }
+                .current-date{
+                    margin: calcRem(0 24px);
+                    font-family: $fonts-bold;
+                }
+            }
+            .sdp-doc-calendar{
+                border: 1px solid #D6D6D6;
+                @include hdpi(1.5){
+                    border-width: $number-4k-1px;
+                }
+                @include hdpi(2){
+                    border-width: $border-width;
+                }
+                table{
+                    table-layout: fixed;
+                    border: none;
+
+                    tr{
+                        th, td{
+                            font-size: calcRem(16px);
+                            border: none;
+                            border-bottom: 1px solid #D6D6D6;
+                            @include hdpi(1.5){
+                                border-bottom-width: $number-4k-1px;
+                            }
+                            @include hdpi(2){
+                                border-bottom-width: $border-width;
+                            }
+                        }
+
+                        &:last-child{
+                            td{
+                                border-bottom: none;
+                            }
+                        }
+
+                        th{
+                            padding: calcRem(0 16px);
+                            font-family: $fonts-bold;
+
+                        }
+
+                        td{
+                            padding: calcRem(12px 0 16px);
+                            vertical-align: top;
+                        }
+                    }
+
+                    thead{
+                        th{
+                            height: calcRem(48px);
+                        }
+                    }
+                    tbody{
+                        td{
+                            height: calcRem(152px);
+                            vertical-align: top;
+
+                            .day-txt{
+                                padding: calcRem(0 16px);
+                            }
+
+                            .sc-event{
+                                width: 100%;
+                                height: calcRem(24px);
+                                padding: calcRem(0 8px);
+                                overflow: hidden;
+                                display: inline-block;
+                                cursor: pointer;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                font-family: $fonts-bold;
+                                font-size: calcRem(12px);
+                                line-height: 2;
+                                vertical-align: top;
+                                color:white;
+
+
+                                &.sc-event-type-1{
+                                    background-color: $indigo;
+                                }
+                                &.sc-event-type-2{
+                                    background-color: $cyan;
+                                }
+                                &.sc-event-type-3{
+                                    background-color: $green;
+                                }
+                                &.sc-event-type-4{
+                                    background-color: $orange;
+                                }
+
+                                &:first-of-type{
+                                    margin-top: calcRem(8px);
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+            }
+
+            // 커스텀 마크다운 : 카드 B 타입(리스트형)
+            .sdp-doc-row-list{
+                .inner-card{
+                    overflow: visible;
+                }
+
+                .sdp-card{
+                    &:first-child{
+                        margin-top: 0;
+                        margin-bottom: 0;
+                    }
+
+                    //카드 z-index설정
+                    @for $i from 1 to 20{
+                        &:nth-child(#{$i}){
+                            z-index: 20 - $i;
+                        }
+                    }
+
+                    li{
+                        &:before{
+                            display: none;
+                        }
+                    }
+
+                    .inner-card{
+
+                    }
+                }
+
+                .item-img{
+                    margin-left: 0;
+                    padding-left: 0;
+
+                    &:after{
+                        display: none;
+                    }
+
+                    .img-thumbnail{
+                        background: none;
+                        border: none;
+
+                        .thumbnail{
+                            width: calcRem(200px);
+                            height: calcRem(200px);
+                            background: {repeat: no-repeat; size: cover; position: center center;};
+                        }
+                    }
+                }
+
+                .item-body{
+                    .txt-title{
+                        .badge{
+                            margin-top: -0.8em;
+                        }
+                    }
+
+                    .txt-desc-list{
+                        margin:0;
+                        li.list-item{
+                            padding-left: 0;
+                            text-indent: 0;
+
+                            p{
+                                margin:0;
+                            }
+
+
+                            // 컬러칩
+                            .color-list-wrap{
+                                display: inline-flex;
+                                line-height: 1.2;
+                                .color-list{
+                                    display: flex;
+                                    align-items: center;
+                                    i{
+                                        display: block;
+                                        width:calcRem(16px);
+                                        height: calcRem(16px);
+                                        margin-right: calcRem(8px);
+                                        border-radius: 50%;
+                                        &:last-child{
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.select-group{
+                                .select-items {
+                                    margin-top: 0;
+                                    .dropdown {
+                                        .btn {
+                                            width: calcRem(144px);
+                                            height: calcRem(32px);
+                                            min-width: auto;
+                                            padding: calcRem(9px 16px);
+                                            font-size: calcRem(12px);
+                                            line-height:1;
+
+                                            &:after {
+                                                top: calcRem(13px);
+                                                right: calcRem(15px);
+                                            }
+                                        }
+
+                                        .dropdown-menu{
+                                            background: #fff;
+                                            margin-top: calcRem(-32px);
+                                            padding: calcRem(2px 0);
+                                            &:after{
+                                                top: calcRem(12px);
+                                            }
+
+                                            .dropdown-item{
+                                                padding: calcRem(4px 16px);
+                                                font-size: calcRem(12px);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.btns{
+                                .btn{
+                                    display: inline-block;
+                                    width:auto; height: auto;
+                                    margin-top: 0;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                @include media-breakpoint-down(sm){
+                    .sdp-card{
+                        .inner-card{
+                            height: calcRem(630px);
+                            align-items: center;
+                        }
+
+                        &:not(:first-child){
+                            margin-top: calcRem(24px);
+                            margin-bottom: 0;
+                        }
+
+                        .item-img {
+                            .img-thumbnail {
+                                padding: calcRem(24px 0 16px);
+
+                                .thumbnail{
+                                    width: calcRem(200px);
+                                    height: calcRem(200px);
+                                }
+                            }
+                        }
+
+                        .item-body{
+                            width: 100%;
+                            padding: calcRem(0 10px 24px);
+
+                            .item-body-top{
+                                text-align: center;
+                            }
+                            .txt-desc-list {
+                                margin-bottom: 0;
+                                li.list-item {
+                                    &:not(:first-child){
+                                        margin-top: calcRem(24px);
+                                    }
+
+                                    .desc-tit{
+                                        display: block;
+                                    }
+                                    .desc-txt{
+                                        display: block;
+
+                                        span{
+                                            display: block;
+                                        }
+                                    }
+
+                                    .color-list-wrap{
+                                        display: block;
+
+                                        .color-list{
+                                            justify-content: center;
+                                            margin-top: calcRem(16px);
+                                        }
+                                    }
+
+                                    &.select-group {
+                                        margin-bottom: calcRem(32px);
+                                        .select-items {
+                                            max-width: calcRem(270px);
+                                            margin:0 auto;
+                                            .dropdown {
+                                                &:not(:first-child) {
+                                                    margin-top: calcRem(16px);
+                                                }
+                                                .btn {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .breadcrumb{
+                                        display: flex;
+                                        justify-content: center;
+                                    }
+
+                                    &.btns{
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                @include media-breakpoint-up(md){
+                    .sdp-card{
+                        &:not(:first-child){
+                            margin-top: calcRem(20px);
+                            margin-bottom: 0;
+                        }
+
+                        .inner-card{
+                            height: calcRem(248px);
+                        }
+
+                        .item-img {
+                            width: calcRem(232px);
+                            padding-left: 0;
+                            margin-left: 0;
+
+                            .img-thumbnail {
+                                padding: calcRem(24px 16px);
+                            }
+                        }
+
+                        .item-body{
+                            width: auto;
+                            justify-content: center;
+                            padding-left: 0;
+                            padding-right: calcRem(10px);
+                            //padding: calcRem(24px 24px 10px 0);
+
+                            .txt-desc-list{
+                                .list-item{
+                                    &:not(:first-child){
+                                        margin-top: calcRem(16px);
+                                    }
+
+                                    .desc-tit{
+                                        margin-right: calcRem(14px);
+                                    }
+
+                                    &.select-group {
+                                        .select-items{
+                                            display: flex;
+                                            .dropdown {
+                                                &:not(:first-child){
+                                                    margin-left: calcRem(16px);
+                                                }
+                                                .btn {
+                                                    width: calcRem(144px);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.btns{
+                                        margin-top: calcRem(10px);
+                                        .btn{
+                                            margin-left: calcRem(-10px);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+                }
+
+
+            }
+
+            // 탭 메뉴
+            .sdp-doc-nav-tabs{
+                &.fixed-top{
+                    position: static;
+                }
+
+                .nav{
+                    flex-wrap: nowrap;
+                    margin-left: calcRem(-10px);
+                    margin-right: calcRem(-10px);
+                    border-bottom: none;
+                    counter-reset:none;
+                    overflow-y: hidden;
+                    overflow-x: auto;
+                    background: none;
+                    -webkit-overflow-scrolling : touch;
+
+                    .nav-item{
+                        padding:0;
+                        text-indent:0;
+                        white-space: nowrap;
+
+                        &:before{
+                            display: none;
+                        }
+                        .nav-link{
+                            padding: calcRem(8px);
+                            margin-top: 0;
+                            font-family: $fonts-bold;
+                        }
+                    }
+                }
+
+                & + .row{
+                    margin-top: calcRem(12px);
+                }
+
+                @include media-breakpoint-down(md){
+                    position: relative;
+                    height: calcRem(49px);
+
+                    &:before{
+                        display: block;
+                        position: fixed; left:0; top:64px;
+                        z-index: 49;
+                        width:100%; height: calcRem(49px);
+                        content:'';
+                        border:1px solid red;
+
+                        background-color: rgba(255,255,255,0.7);
+                        backdrop-filter: saturate(180%) blur(20px);
+
+                        transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+                    }
+
+                    .nav-tabs{
+                        position: absolute;
+                        left:0; right:0; top:0;
+                    }
+
+                    &.fixed-top{
+                        .nav-tabs{
+                            position: fixed;
+                            left:calcRem(32px); right:calcRem(32px);
+                            top:64px;
+                            z-index: 50;
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

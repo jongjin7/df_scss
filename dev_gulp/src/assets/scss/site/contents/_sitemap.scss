@@ -1,0 +1,109 @@
+.sitemap{
+    width: 100%;
+
+    .navbar-depth1{
+        position: relative;
+        width:100%;
+        & > .nav-item{
+            .nav-link{
+
+            }
+        }
+
+        .depth1-link{
+            font-family: $fonts-bold;
+            font-size: 24px;
+            color: $black;
+        }
+    }
+
+    .navbar-depth2{
+        .depth2-link{
+            display: inline-block;
+            color:$gray-300;
+        }
+    }
+
+    @include media-breakpoint-down(sm){
+
+        .navbar-depth1{
+            display: block;
+            border-top: 1px solid $gray-100;
+
+            & > .nav-item{
+                padding-top: calcRem(44px);
+            }
+        }
+
+        .navbar-depth2{
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            .nav-item{
+                width: 50%;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        .navbar-depth1{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            & > .nav-item{
+                //flex-basis:300px;
+                &:nth-child(4){
+                    flex-basis:275px;
+                }
+                &:last-child{
+                    position: absolute; right:0; bottom:0;
+                    width:275px;
+                }
+            }
+
+        }
+        .navbar-depth2{
+            .depth2-link{
+                transition: color 0.15s ease-in-out;
+                &:after{
+                    width:0;
+                    display: block;
+                    height:1px;
+                    background: $cyan;
+                    content:'';
+                    transition: width 0.15s ease-in-out;
+
+                    @include hdpi(1.5){
+                        height: $number-4k-1px;
+                    }
+
+                    @include hdpi(1.6){
+                        height: $border-width;
+                    }
+                }
+
+                @at-root .desktop &:hover{
+                    color: $cyan !important;
+                    &:after{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+    @include media-breakpoint-between(md, lg){
+        .navbar-depth1{
+            & > .nav-item{
+                &:nth-child(4){
+                    flex-basis:24%;
+                }
+                &:last-child{
+                    width:24%;
+                }
+            }
+
+        }
+    }
+}

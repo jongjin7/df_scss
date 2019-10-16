@@ -1,0 +1,832 @@
+// icon inline-block style
+.inline-icon {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:1;
+}
+// Base image Icon styles
+.s-ico{
+    display: inherit;
+    width:100%; height:100%;
+
+    // js-icon color setting
+    .a {fill:$gray-400;}
+    &[class*="-gray200"] {
+        .a {fill: $gray-200;}
+    }
+    &[class*="-indigo"] {
+        .a {fill: $indigo;}
+    }
+
+    &:not(svg):before{
+        display: block;
+        content:'';
+        width:100%; height:100%;
+        background-repeat: no-repeat;
+        background-size:100% auto;
+        background-position: center center;
+    }
+
+    // 아이콘 svg 정의
+    &-check-success{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_check_success.svg');
+        }
+    }
+
+    &-arrow{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow.svg');
+        }
+    }
+
+    &-arrow-white{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_@white.svg');
+        }
+    }
+
+    &-arrow-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_@indigo.svg');
+        }
+    }
+
+    &-sm-arrow{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_sm_arrow.svg');
+        }
+    }
+    &-sm-arrow-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_sm_arrow_@indigo.svg');
+        }
+    }
+    &-arrow-outlink-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_outlink_@indigo.svg');
+        }
+    }
+    &-arrow-download-white{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_download_@white.svg');
+        }
+    }
+    &-arrow-download{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_download.svg');
+        }
+    }
+
+    &-arrow-download-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_download_@indigo.svg');
+        }
+    }
+
+    &-arrow-top-white{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_top.svg');
+        }
+    }
+
+    &-circle {
+        border-radius:50%;
+        overflow:hidden;
+        &:before {
+            background-color:inherit;
+        }
+    }
+
+    &-logo{
+        &:before{
+            background-image:url('../img/common/logo_developers.svg');
+        }
+    }
+    &-logo-w{
+        &:before{
+            background-image:url('../img/common/logo_developers_w.svg');
+        }
+    }
+
+    &-close{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close.svg');
+        }
+    }
+    &-close-white{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close_@white.svg');
+        }
+    }
+    &-close-gray200{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close_@gray200.svg');
+        }
+    }
+    &-close-pop{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close_pop.svg');
+        }
+    }
+    &-close-pop-white{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close_pop_@white.svg');
+        }
+    }
+    &-download-pdf{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_download_pdf.svg');
+        }
+    }
+    &-download-pdf-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_download_pdf_@indigo.svg');
+        }
+    }
+
+    &-schzoom{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_search_zoom.svg');
+        }
+    }
+    &-schzoom-gray300{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_search_zoom_@gray300.svg');
+        }
+    }
+    &-schzoom-black{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_search_zoom_@black.svg');
+        }
+    }
+    &-schzoom-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_search_zoom_@indigo.svg');
+        }
+    }
+    &-calendar{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_calendar.svg');
+        }
+    }
+    &-person{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_person.svg');
+        }
+    }
+    &-location{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_location.svg');
+        }
+    }
+    &-list-row{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_list_row.svg');
+        }
+    }
+    &-list-row-active{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_list_row_@indigo.svg');
+        }
+    }
+    &-list-col{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_list_col.svg');
+        }
+    }
+    &-list-col-active{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_list_col_@indigo.svg');
+        }
+    }
+    &-share{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_share.svg');
+        }
+    }
+    &-like {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_like.svg');
+        }
+    }
+    &-like-indigo-fill {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_like_indigo_fill.svg');
+        }
+    }
+    &-bookmark{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_bookmark.svg');
+        }
+    }
+    &-bookmark-indigo-fill{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_bookmark_indigo_fill.svg');
+        }
+    }
+    &-hash{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_hash.svg');
+        }
+    }
+    &-attachfile-gray200{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_attachfile_@gray200.svg');
+        }
+    }
+    &-time{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_time.svg');
+        }
+    }
+    &-timedot{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_timedot.svg');
+        }
+    }
+    &-timeclose{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_timeclose.svg');
+        }
+    }
+    &-plus-indigo{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_plus_@indigo.svg');
+        }
+    }
+
+    // sns
+    &-linkedin-color{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_linkedin_color.svg');
+        }
+    }
+    &-facebook-color{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_facebook_color.svg');
+        }
+    }
+    &-twitter-color{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_twitter_color.svg');
+        }
+    }
+    &-mail-color{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_mail_color.svg');
+        }
+    }
+
+    // arrow
+    &-arrow-down {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_down.svg');
+        }
+    }
+    &-arrow-down-gray-200 {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_down_@gray200.svg');
+        }
+    }
+
+    &-arrow-down-gray-300 {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_down_@gray300.svg');
+        }
+    }
+
+    &-arrow-down-indigo {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_down_@indigo.svg');
+        }
+    }
+
+    &-arrow-down-white {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_arrow_down_@white.svg');
+        }
+    }
+
+    // file extension
+    &-file-img {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_extension_img.svg');
+        }
+    }
+    &-file-zip {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_extension_zip.svg');
+        }
+    }
+    &-file-txt {
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_extension_txt.svg');
+        }
+    }
+
+
+    // device
+    &-device-phone{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_phone.svg');
+        }
+    }
+    &-device-watch{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_watch.svg');
+        }
+    }
+    &-device-vr{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_vr.svg');
+        }
+    }
+    &-device-tv{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_tv.svg');
+        }
+    }
+    &-device-fridge{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_fridge.svg');
+        }
+    }
+    &-device-gear{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_device_gear.svg');
+        }
+    }
+
+    // main tnd big icons
+    &-tnd-lab{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tnd_lab.svg');
+        }
+    }
+    &-tnd-galaxystore{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tnd_galaxystore.svg');
+        }
+    }
+    &-tnd-support{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tnd_support.svg');
+        }
+    }
+
+    // explore big icons
+    &-explore-design{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_explore_design.svg');
+        }
+    }
+    &-explore-develop{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_explore_develop.svg');
+        }
+    }
+    &-explore-monetize{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_explore_monetize.svg');
+        }
+    }
+
+    // design galaxy theme landing icon
+    &-theme-account{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_themeprocess_account.svg');
+        }
+    }
+    &-theme-portfolio{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_themeprocess_portfolio.svg');
+        }
+    }
+    &-theme-request{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_themeprocess_request.svg');
+        }
+    }
+    &-theme-maketheme{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_themeprocess_maketheme.svg');
+        }
+    }
+
+    // design galaxy sticker landing icon
+    &-sticker-account{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_sticker_account.svg');
+        }
+    }
+    &-sticker-portfolio{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_sticker_portfolio.svg');
+        }
+    }
+    &-sticker-request{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_sticker_request.svg');
+        }
+    }
+    &-sticker-makesticker{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_sticker_makesticker.svg');
+        }
+    }
+
+    // developer big icons
+    &-developer-bixby{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_bixby.svg');
+        }
+    }
+    &-developer-blockchain{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_blockchain.svg');
+        }
+    }
+    &-developer-dex{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_dex.svg');
+        }
+    }
+    &-developer-familyhub{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_familyhub.svg');
+        }
+    }
+    &-developer-galaxywatch{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_galaxywatch.svg');
+        }
+    }
+    &-developer-gamedev{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_gamedev.svg');
+        }
+    }
+    &-developer-health{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_health.svg');
+        }
+    }
+    &-developer-internet{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_internet.svg');
+        }
+    }
+    &-developer-knox{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_knox.svg');
+        }
+    }
+    &-developer-mobile{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_mobile.svg');
+        }
+    }
+    &-developer-smartthings{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_smartthings.svg');
+        }
+    }
+    &-developer-smarttv{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_smarttv.svg');
+        }
+    }
+    &-developer-tizen{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_tizen.svg');
+        }
+    }
+    &-developer-bixbyhome{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_bixbyhome.svg');
+        }
+    }
+    &-developer-oneui{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_oneui.svg');
+        }
+    }
+    &-developer-galaxytheme{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_galaxytheme.svg');
+        }
+    }
+    &-developer-galaxysticker{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_developer_galaxysticker.svg');
+        }
+    }
+
+    // distribute remove test Lab big icons
+    &-feature-device-fold{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_fold.svg');
+        }
+    }
+    &-feature-device-s10e{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_s10e.svg');
+        }
+    }
+    &-feature-device-s10plus{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_s10plus.svg');
+        }
+    }
+    &-feature-device-watch{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_watch.svg');
+        }
+    }
+    &-feature-device-watch{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_watch.svg');
+        }
+    }
+    &-feature-device-note9{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_note9.svg');
+        }
+    }
+    &-feature-device-noteseries{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_noteseries.svg');
+        }
+    }
+    &-feature-device-tabs4{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_tabs4.svg');
+        }
+    }
+    &-feature-device-hub2{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_hub2.svg');
+        }
+    }
+    &-feature-device-z4{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_feature_device_z4.svg');
+        }
+    }
+
+    // distribute remove test Lab big icons
+    &-howtosstart-signup{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_remote_signup.svg');
+        }
+    }
+    &-howtosstart-select{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_remote_select.svg');
+        }
+    }
+    &-howtosstart-start{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_remote_start.svg');
+        }
+    }
+    &-howtosstart-guide{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_remote_guideline.svg');
+        }
+    }
+    &-pub-signup{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_pub_signup.svg');
+        }
+    }
+    &-pub-view{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_pub_view.svg');
+        }
+    }
+    &-pub-promote{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_distribute_pub_promote.svg');
+        }
+    }
+
+    // distribute apps big icons
+    &-apps-guide{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_apps_guide.svg');
+        }
+    }
+    &-apps-selleroffice{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_apps_selleroffice.svg');
+        }
+    }
+    &-apps-storebadge{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_apps_storebadge.svg');
+        }
+    }
+    &-apps-storeassetcreator{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_apps_storeassetcreator.svg');
+        }
+    }
+
+    // dashboard main icon
+    &-tech-bixby-vision{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tech_bixby_vision.svg');
+        }
+    }
+    &-tech-galaxy-accessory{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tech_galaxy_accessory.svg');
+        }
+    }
+    &-tech-galaxy-camera{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_tech_galaxy_camera.svg');
+        }
+    }
+
+    // connect landing icon
+    &-connect-technical-support{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_connect_technical_support.svg');
+        }
+    }
+    &-connect-forum{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_connect_forum.svg');
+        }
+    }
+    &-connect-faq{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_connect_faq.svg');
+        }
+    }
+    &-connect-developer-universe{
+        &:before{
+            background-image:url('../img/common/icon_contents/icon_connect_developer_universe.svg');
+        }
+    }
+
+
+    // play and pause
+    &-play {
+        display:block;
+        position:relative;
+        border-radius:50%;
+        overflow:hidden;
+        &:before {
+            border-radius:50%;
+            background-color:$black;
+        }
+        &:after {
+            display:block;
+            content:'';
+            position:absolute;
+            width:100%; height:100%;
+            top:0; left:0; right:0; bottom:0;
+            border-radius:50%;
+            border:3px solid #fff;
+        }
+        .play-to-pause {
+            position:absolute;
+            top:50%; left:50%;
+            margin-left:-9px;
+            margin-top:-15px;
+        }
+    }
+}
+
+.play-to-pause {
+    $w:24px;
+    $h:30px;
+    $playW : $h/2;
+
+    width:$w;
+    height:$h;
+
+    .play {
+        display: block;
+        box-sizing: border-box;
+        width: 0;
+        height: $h;
+        border-color: transparent transparent transparent #fff;
+        transition: 400ms border ease;
+        cursor: pointer;
+
+        border-style: solid;
+        border-width: $playW 0 $playW $w;
+    }
+
+    .pause {
+        display: block;
+        box-sizing: border-box;
+        width: 0;
+        height: $h;
+        margin-left:-3px;
+        border-style: double;
+        border-width: 0 0 0 $w;
+        border-color: transparent transparent transparent #fff;
+        transition: 100ms border ease;
+        cursor: pointer;
+    }
+}
+
+// icon size
+.icon{
+    &-size-1 {width:calcRem(16px); height:calcRem(16px);}
+    &-size-2 {width:calcRem(24px); height:calcRem(24px);}
+    &-size-3 {width:calcRem(32px); height:calcRem(32px);}
+    &-size-4 {width:calcRem(88px); height:calcRem(88px);}
+    &-size-big {width:calcRem(96px); height:calcRem(96px);}
+
+    // icon margin right
+    &-mr {margin-right:calcRem(6px);}
+}
+
+// icon group
+.icon-group {
+    width:100%;
+    font-size:0;
+    text-align:left;
+
+    [class^="icon-"] {
+        display:inline-block;
+        vertical-align:middle;
+        line-height:1;
+        margin:calcRem(0 2px);
+
+        &:first-child {margin-left:0;}
+        &:last-child {margin-right:0;}
+    }
+
+    .icon-mx {margin:calcRem(0 4px);}
+}
+
+// icon focus
+.btn-group {
+    .btn:hover {
+        .s-ico{
+            .a {fill:$indigo !important;}
+        }
+    }
+    .active {
+        .s-ico{
+            .a {fill:$indigo !important;}
+        }
+    }
+}
+a,
+button {
+    .s-ico {
+        .a {transition:fill .15s ease-in-out;}
+    }
+    &:hover {
+        .s-ico{
+            .a {fill:$indigo !important;}
+        }
+    }
+}
+
+
+//
+// CSS Icon styles
+// Icon X
+.icon-close{
+    display: block;
+    position: relative;
+    width:calcRem(24px); height: calcRem(24px);
+    &:before{
+        display: block;
+        width:100%; height:100%;
+        background:{image:url('../img/common/icon_gui/icon_close_pop_@white.svg'); repeat: no-repeat; position: center center; size: 100% auto;}
+        content: '';
+    }
+    //&:before{
+    //    left:0;
+    //    top:calc(50% - 1px);
+    //    transform: rotate(45deg);
+    //}
+    //&:after{
+    //    left:0;
+    //    top:calc(50% - 1px);
+    //    transform: rotate(-45deg);
+    //}
+    //
+    //i{
+    //    display: none;
+    //}
+    //
+    //black type
+    &.black{
+        &:before{
+            background-image:url('../img/common/icon_gui/icon_close_pop.svg');
+        }
+    }
+}
+
