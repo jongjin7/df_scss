@@ -1,0 +1,377 @@
+// default font size setting
+html {
+    @include media-breakpoint-only(md) {
+        font-size: 0.85em;
+    }
+
+    @include media-breakpoint-only(sm) {
+        //font-size: 1.05em;
+    }
+}
+
+// default 속성 정의
+body {
+    color:$gray-400;
+    font-size:1rem;
+    line-height:1.625;
+    overflow-x:hidden;
+}
+figure {
+    margin:0;
+    background-color:transparent;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+}
+figcaption,
+.figure-caption {
+    color:$black;
+    margin-top:calcRem(12px);
+    font-size: calcRem(12px);
+}
+.text-hide {
+    @include sr-only;
+}
+a {
+    color:$gray-400;
+    @include hover {
+        color:$gray-400;
+    }
+}
+
+// 기본 컴포넌트 커스터마이징
+// max-width size
+.container {
+    @include media-breakpoint-down(sm) {
+        max-width:100%;
+    }
+}
+.container,
+.container-fluid {
+    position:relative;
+}
+.container-wide {
+    position:relative;
+    @include make-container();
+}
+
+.container-wide-large {
+    position:relative;
+    max-width:$kv-max;
+    @include make-container();
+}
+//max-width:$kv-max !important;  0906 신형주 수정
+.container-wide-max {
+    position:relative;
+    @include make-container();
+    max-width:$kv-wide-max !important;
+}
+.container-wide-max-responsive {
+    position:relative;
+    @include make-container();
+    max-width:$kv-wide-max !important;
+
+    // 브라우저 너비 1920px 이상에서는 100%가 되는 가변형 컨테이너
+    @media (min-width:$kv-wide-max) {
+        max-width:100% !important;
+
+        // 2depth kv img
+        .cta-img-size-3 {height:23.333vw;}
+    }
+}
+
+// jumbotron
+.jumbotron-fluid,
+.jumbotron {
+    background-color:$black;
+    overflow:hidden;
+
+    figure {background-color:$black;}
+}
+
+// width
+.w-10 {width:10%;}
+.w-30 {width:30%;}
+.w-40 {width:40%;}
+.w-60 {width:60%;}
+.w-70 {width:70%;}
+.w-80 {width:80%;}
+
+.w-sm-100 {
+    @include media-breakpoint-down(sm) {
+        width:100% !important;
+    }
+}
+.w-md-100 {
+    @include media-breakpoint-up(md) {
+        width:100% !important;
+    }
+}
+.h-md-auto {
+    @include media-breakpoint-down(md) {
+        height:auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+    }
+}
+.h-md-100 {
+    @include media-breakpoint-down(md) {
+        height:100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
+    }
+}
+.minh-auto {min-height:0 !important;}
+
+.h-sm-auto {
+    @include media-breakpoint-down(sm) {
+        height:auto !important;
+    }
+}
+.h-sm-100 {
+    @include media-breakpoint-down(sm) {
+        height:100% !important;
+    }
+}
+
+// position
+.position-md-absolute {
+    @include media-breakpoint-up(md) {
+        position:absolute;
+    }
+}
+.position-md-top-right {
+    @include media-breakpoint-up(md) {
+        top:0; right:0;
+    }
+}
+.position-md-top {
+    @include media-breakpoint-up(md) {
+        top:0;
+    }
+}
+.position-md-right {
+    @include media-breakpoint-up(md) {
+        right:0;
+    }
+}
+.position-md-bottom-100-right {
+    @include media-breakpoint-up(md) {
+        bottom:100%; right:0;
+    }
+}
+
+// border
+.border         { border: $border-width solid $gray-200 !important; }
+.border-top     { border-top: $border-width solid $gray-200 !important; }
+.border-right   { border-right: $border-width solid $gray-200 !important; }
+.border-bottom  { border-bottom: $border-width solid $gray-200 !important; }
+.border-left    { border-left: $border-width solid $gray-200 !important; }
+
+@include hdpi(1.5){
+    .border         { border-width: $number-4k-1px !important; }
+    .border-top     { border-top-width: $number-4k-1px !important; }
+    .border-right   { border-right-width: $number-4k-1px !important; }
+    .border-bottom  { border-bottom-width: $number-4k-1px !important; }
+    .border-left    { border-left-width: $number-4k-1px  !important; }
+}
+
+@include hdpi(2){
+    .border         { border-width: $border-width !important; }
+    .border-top     { border-top-width: $border-width !important; }
+    .border-right   { border-right-width: $border-width !important; }
+    .border-bottom  { border-bottom-width: $border-width !important; }
+    .border-left    { border-left-width: $border-width  !important; }
+}
+
+
+@include media-breakpoint-down(sm) {
+    .border-sm         { border: $border-width solid $gray-200 !important; }
+    .border-sm-top     { border-top: $border-width solid $gray-200 !important; }
+    .border-sm-right   { border-right: $border-width solid $gray-200 !important; }
+    .border-sm-bottom  { border-bottom: $border-width solid $gray-200 !important; }
+    .border-sm-left    { border-left: $border-width solid $gray-200 !important; }
+}
+
+@include media-breakpoint-up(md) {
+    .border-md         { border: $border-width solid $gray-200 !important; }
+    .border-md-top     { border-top: $border-width solid $gray-200 !important; }
+    .border-md-right   { border-right: $border-width solid $gray-200 !important; }
+    .border-md-bottom  { border-bottom: $border-width solid $gray-200 !important; }
+    .border-md-left    { border-left: $border-width solid $gray-200 !important; }
+}
+
+.border-0        { border: 0 !important; }
+.border-top-0    { border-top: 0 !important; }
+.border-right-0  { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0   { border-left: 0 !important; }
+
+// background color
+@each $color, $value in $colors {
+    @include bg-variant(".bg-#{$color}", $value);
+}
+
+// border width
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $width, $value in $border-width-list {
+            .border-top#{$infix}-#{$width} {
+                border-top-width:$value !important;
+                border-top-style:solid;
+                border-top-color:$gray-200;
+            }
+            .border-right#{$infix}-#{$width} {
+                border-right-width:$value !important;
+                border-right-style:solid;
+                border-right-color:$gray-200;
+            }
+            .border-bottom#{$infix}-#{$width} {
+                border-bottom-width:$value !important;
+                border-bottom-style:solid;
+                border-bottom-color:$gray-200;
+            }
+            .border-left#{$infix}-#{$width} {
+                border-left-width:$value !important;
+                border-left-style:solid;
+                border-left-color:$gray-200;
+            }
+        }
+    }
+}
+
+// border color
+@each $color, $value in $colors {
+    .border-#{$color} {
+        border-color: $value !important;
+    }
+}
+
+// underline color
+@each $color, $value in $colors {
+    .underline-#{$color} {
+        border-bottom-width:1px;
+        border-bottom-style:solid;
+        border-bottom-color:$value !important;
+    }
+}
+// button outline color
+@each $color, $value in $colors {
+    .btn-outline-#{$color} {
+        @include button-outline-variant($value);
+    }
+}
+
+// icon color
+@each $color, $value in $colors {
+    .icon-#{$color} {
+        &:before,
+        &:after  {
+            border-color: $value !important;
+        }
+    }
+}
+
+// text color
+@each $color, $value in $colors {
+    .text-#{$color} {
+        color: $value !important;
+    }
+}
+.text-muted {color:inherit !important;}
+.txt-status {
+    .sta-approved {color:$indigo;}
+    .sta-under {color:$gray-200;}
+    .sta-rejected {color:$gray-200;}
+    .sta-applied {color:$indigo;}
+    .sta-request {color:$gray-200;}
+
+    .sta-disruption{
+        color:$gray-200;
+    }
+    .sta-available{
+        color: $cyan;
+    }
+    .sta-degradation{
+        color:$red;
+    }
+}
+
+// line-height
+.line-height-0 {line-height:0;}
+.line-height-1 {line-height:1;}
+
+// [ DF MADE ] background size
+.bg-size-auto {background-size:auto;}
+.bg-size-100 {background-size:100%;}
+.bg-size-w-100 {background-size:100% auto;}
+.bg-size-h-100 {background-size:auto 100%;}
+.bg-size-cover {background-size:cover;}
+.bg-size-contain {background-size:contain;}
+
+// [ DF MADE ] background position
+.bg-position-center {background-position:center center;}
+.bg-position-center-top {background-position:center top;}
+.bg-position-center-bot {background-position:center bottom;}
+
+// [ DF MADE ] position full
+.position-full {top:0; right:0; bottom:0; left:0;}
+
+// [ DF MADE ] z-index
+.zindex-0 {z-index:0;}
+.zindex-1 {z-index:1;}
+
+// [ DF MADE ] cta img size
+.cta-img-size-main                             {min-height:calcRem(424px);            // only main home kv banner (1920px 기준)
+    @include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(424px);}     // tablet and pc (1920px 기준)
+}
+.cta-img-size-main-half                        {min-height:calcRem(212px);            // only main home kv banner half
+    @include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(212px);}     // tablet and pc (before :224)
+}
+// resizing test
+.test-resizing {
+    .cta-img-size-main                             {min-height:calcRem(424px);            // only main home kv banner (1920px 기준)
+        @include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(424px);}     // tablet and pc (1920px 기준)
+    }
+    .cta-img-size-main-half                        {min-height:calcRem(212px);            // only main home kv banner half
+        @include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(212px);}     // tablet and pc (before :224)
+    }
+}
+.test-fixed {
+    .cta-img-size-main                        {height:calcRem(424px);            // only main home kv banner (1920px 기준)
+        //@include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(424px);}     // tablet and pc (1920px 기준)
+    }
+    .cta-img-size-main-half                   {height:calcRem(212px);            // only main home kv banner half
+        //@include media-breakpoint-up($kv-wide-max) {height:calcVwWidePC(212px);}     // tablet and pc (before :224)
+    }
+}
+// [END] resizing test
+
+.cta-img-size-1                           {height:calcVw(520px);                 // 3depth banner
+    @include media-breakpoint-up(md)      {height: calcRem(256px);}              // tablet and pc
+}
+.cta-img-size-2                           {height:calcVw(336px);                 // provide banner
+    @include media-breakpoint-up(md)      {height: calcRem(336px);}              // tablet and pc
+}
+.cta-img-size-3                           {height:calcVw(512px);                 // 2depth banner
+    @include media-breakpoint-up(md)      {height: calcRem(448px);}              // tablet and pc
+}
+.cta-img-size-4                           {height:calcVw(512px);                  // full bleed banner
+	@include media-breakpoint-up(md)      {height: calcRem(424px);}              // tablet and pc
+}
+.cta-img-size-5                           {height:calcVw(512px);                 // 2depth banner
+    @include media-breakpoint-up(md)      {height: calcRem(424px);}              // tablet and pc
+}
+
+.cta-video-size                           {height:calcVw(336px);                 // provide banner
+    @include media-breakpoint-up(md)      {height: calcRem(384px);}              // tablet and pc
+}
+.cta-img-size-branch            {width:calcRem(96px); height:calcRem(96px);}
+.cta-img-size-branch-small      {width:calcRem(56px); height:calcRem(56px);}
+.cta-img-size-tnd               {width:calcRem(192px); height:calcRem(88px);}
+
+// [ DF MADE ] cta size
+.cta-size-alert         {height:calcRem(200px);}
+

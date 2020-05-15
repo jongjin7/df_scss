@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Alert</title>
+    {% import "inc_common_head.html" as head -%}
+    {{ head.assetFiles('../../../','boot-org') }}
+</head>
+<body class="">
+
+<div id="app">
+    <div class="wrapper">
+        {% include "inc_bootstrap_header.html" %}
+
+        <div class="sdp-container" style="margin-bottom:100px">
+            <h1 class="demo-pg-title">이미지</h1>
+
+            <div class="container">
+                <div class="row demo-title">
+                    <div class="w-100">
+                        <h2 class="border-bottom h3 p-2">1. 반응형 이미지</h2>
+                        <p class="lead">100% 이미지, 높이 자동, 부모 컨테이너 크기에 영향을 받음</p>
+                        <div class="content">
+                            <img  class="img-fluid" src="https://developer.samsung.com/sd2_images/main/banner/banner-sdc-2019.png" alt="">
+                        </div>
+                        <h2 class="border-bottom h3 p-2 mt-5">2. 썸네일형 이미지</h2>
+                        <p class="lead">이미지에 둥근 1px 테두리 모양</p>
+                        <div class="content">
+                            <img  class="img-thumbnail" width="200" src="https://developer.samsung.com/sd2_images/gear/content/designer_06.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% include "inc_guide_footer.html" %}
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../../assets/js/sdp.common.js"></script>
+
+</body>
+</html>

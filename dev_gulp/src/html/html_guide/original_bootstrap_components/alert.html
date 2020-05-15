@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Alert</title>
+    {% import "inc_common_head.html" as head -%}
+    {{ head.assetFiles('../../../','boot-org') }}
+</head>
+<body class="">
+
+<div id="app">
+    <div class="wrapper">
+        {% include "inc_bootstrap_header.html" %}
+
+        <div class="sdp-container" style="margin-bottom:100px">
+            <h1 class="demo-pg-title">알림 메시지 (경고 메시지)</h1>
+
+            <div class="container">
+                <div class="row demo-title">
+                    <div class="w-100">
+                        <h2 class="border-bottom h3 p-2">1. 알럿의 색상</h2>
+                        <p>
+                            Bootstrap4는 primary, secondary, success, danger, warning, info, light, dark의 8개 색상을 지원한다.<br>
+                            이 색상은 bootstrap.css에서 변경할 수 있으며 css를 통해 나만의 색상을 부여할 수도 있다.
+                        </p>
+                        <div class="content">
+                            <div class="alert alert-primary" role="alert">
+                                A simple primary alert—check it out!
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                A simple secondary alert—check it out!
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                A simple success alert—check it out!
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                A simple warning alert—check it out!
+                            </div>
+                            <div class="alert alert-info" role="alert">
+                                A simple info alert—check it out!
+                            </div>
+                            <div class="alert alert-light" role="alert">
+                                A simple light alert—check it out!
+                            </div>
+                            <div class="alert alert-dark" role="alert">
+                                A simple dark alert—check it out!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 demo-display-title">
+                    <div class="w-100">
+                        <h2 class="border-bottom h3 p-2">2. 알럿 내 링크의 색상</h2>
+                        <div class="content">
+                            <div class="alert alert-primary" role="alert">
+                                A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-secondary" role="alert">
+                                A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-info" role="alert">
+                                A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-light" role="alert">
+                                A simple light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                            <div class="alert alert-dark" role="alert">
+                                A simple dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 demo-display-title">
+                    <div class="w-100">
+                        <h2 class="border-bottom h3 p-2">3. 알럿 내 제목과 내용의 구분</h2>
+                        <p>Alert 내부에 제목부분(heading)과 구분선 등을 적용할 수 있다.</p>
+                        <div class="content">
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Well done!</h4>
+                                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                                <hr>
+                                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 demo-display-title">
+                    <div class="w-100">
+                        <h2 class="border-bottom h3 p-2">4. 알럿 해제 (dismiss)</h2>
+                        <div class="content">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        {% include "inc_guide_footer.html" %}
+    </div>
+</div>
+
+<style>
+
+
+
+</style>
+
+<script type="text/javascript" src="../../../assets/js/sdp.common.js"></script>
+
+</body>
+</html>
