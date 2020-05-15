@@ -1,7 +1,0 @@
-@mixin placeholder($selector:null){
-    #{$selector}::placeholder {
-        @content;
-    }
-}
-
-

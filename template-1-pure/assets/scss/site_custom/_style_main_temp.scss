@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+// ---------------------------------- main page style ---------------------------------- //
+body {
+
+
+    .content {
+        @include per-converter(width, 1900, 1920);
+    }
+
+    .unit-converter{
+        @include per-converter(padding, 20 40 auto 10, 1920);
+        @include per-converter(padding, 20px 40px, 1920px);//단위 사용 가능
+        @include per-converter(margin, 20 auto 10, 1920);
+
+        //vw 변환
+        @include vw-converter(padding, 50, 1000);
+        @include vw-converter(padding, 30 50 20, 1000);
+        @include vw-converter(padding, 100px 50px 120px, 1000px);
+    }
+}
+
+// =============================================================================
+// media-query
+// =============================================================================
+
+// max
+@include break-point-max(sm){
+   body{
+       &:before{
+           content:'max-width: #{sm}';
+       }
+   }
+}
+
+@include break-point-max(500px){
+    body{
+        &:before{
+            content:'min-width: 500px';
+        }
+    }
+}
+
+// between
+@include break-point-between(sm, md){
+    body{
+        &:before{
+            content:'min-width: #{sm}, max-width: #{md}';
+        }
+    }
+}
+
+@include break-point-between(1024px, 1400px){
+    body {
+        &:before {
+            content: 'min-width: 1024px, max-width: 1400px';
+        }
+    }
+}
+
+// min
+@include break-point-min(md){
+    body{
+        &:before{
+            content:'min-width: #{md}';
+        }
+    }
+}
+
+@include break-point-min(1200px){
+    body{
+        &:before{
+            content:'min-width: 1200px';
+        }
+    }
+}
+
+// orientation
+@include landscape(){
+    body{
+        &:before{
+            content:'가로화면';
+        }
+    }
+}
+
+@include portrait(){
+    body{
+        &:before{
+            content:'세로화면';
+        }
+    }
+}

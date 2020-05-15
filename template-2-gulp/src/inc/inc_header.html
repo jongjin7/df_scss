@@ -1,0 +1,15 @@
+{% macro active(activePage = null) -%}
+<header>
+    <style>
+
+    </style>
+    <ul>
+        <li>
+            <a class="{% if activePage[0] == 1 %} active {% endif %}" href="./sub_1.html"><span>Sub1</span></a>
+        </li>
+        <li>
+            <a class="{% if activePage[0] == 2 %} active {% endif %}" href="./sub_2.html"><span>Sub2</span></a>
+        </li>
+    </ul>
+</header>
+{% endmacro %}

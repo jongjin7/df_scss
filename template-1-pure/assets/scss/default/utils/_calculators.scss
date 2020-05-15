@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+// 단위 제거 함수
+@function delUnit($value) {
+    @return ($value / ($value * 0 + 1))
+}
+
+// vw Calculator
+@function cal-vw($px, $psd-size){
+    @return (($px / delUnit($psd-size)) * 100) + vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

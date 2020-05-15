@@ -1,0 +1,45 @@
+@charset "utf-8";
+// percent converter
+@mixin per-converter($property, $pc-pixel, $psd-pixel:null) {
+    $psd-pixel: if(unitless($psd-pixel), $psd-pixel, delUnit($psd-pixel));
+    @if type-of($pc-pixel) == number {
+        #{$property}: if(unitless($pc-pixel), $pc-pixel, delUnit($pc-pixel))*100/$psd-pixel*1%;
+    }@else if type-of($pc-pixel) == string {
+        #{$property}: auto;
+
+    }@else if type-of($pc-pixel) == list {
+        $pe: ();
+        @each $value in $pc-pixel {
+            @if type-of($value) == number {
+                $pe: append($pe, if(unitless($value), $value, delUnit($value))*100/$psd-pixel*1%);
+            }
+            @else if type-of($value) == string {
+                $pe: append($pe, auto);
+            }
+        }
+        #{$property}: $pe;
+    }
+}
+
+// vw converter
+@mixin vw-converter($property, $pc-pixel,  $psd-pixel:null) {
+    $psd-pixel: if(unitless($psd-pixel), $psd-pixel, delUnit($psd-pixel));
+    @if type-of($pc-pixel) == number {
+        #{$property}: if(unitless($pc-pixel), $pc-pixel, delUnit($pc-pixel))*100/$psd-pixel*1vw;
+    }
+    @else if type-of($pc-pixel) == string {
+        #{$property}: auto;
+    }
+    @else if type-of($pc-pixel) == list {
+        $vw: ();
+        @each $value in $pc-pixel {
+            @if type-of($value) == number {
+                $vw: append($vw, if(unitless($value), $value, delUnit($value))*100/$psd-pixel*1vw);
+            }
+            @else if type-of($value) == string {
+                $vw: append($vw, auto);
+            }
+        }
+        #{$property}: $vw;
+    }
+}

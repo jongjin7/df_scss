@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+// ---------------------------------- Site variables ---------------------------------- //
+
+$psd-pc-width : 1920px;
+$psd-pixel : 1920px;
+$screen-mobile-max : 640px;
+
+$number-4k-1px: 0.667px;
+$max-content-width:1920px;
+
+// breakpoint
+$xs-break:0;
+$sm-break:480px;
+$md-break:768px;
+$lg-break:1084px;
+$xl-break:1200px;
+
+$sm-max:$md-break;
+$md-max:$lg-break;
+$lg-max:$xl-break;
+$xl-max:$lg-max;
+
+// reset Grid
+$grid-breakpoints: (
+        xs: $xs-break,
+        sm: $sm-break,
+        md: $md-break,
+        lg: $lg-break,
+        xl: $xl-break
+);

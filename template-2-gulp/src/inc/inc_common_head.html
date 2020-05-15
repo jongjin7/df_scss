@@ -1,0 +1,52 @@
+{% macro assetFiles(path, type) -%}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover user-scalable=no">
+<link rel="icon" type="image/png" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" href="favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" href="favicon/favicon-16x16.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+
+<!-- canonical -->
+<link rel="canonical" href="index.html">
+
+<!-- SEO -->
+<meta name="title" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="apple-mobile-web-app-title" content="">
+<link rel="image_src" href="images/shares/share-thumb_200x200.jpg">
+<!-- //SEO -->
+
+<!-- SNS Share ======================================= -->
+<!-- FB -->
+<meta property="og:site_name" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="">
+<meta property="og:url" content="index.html">
+<meta property="og:image" content="images/shares/share-thumb_1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- TW -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:url" content="index.html">
+<meta name="twitter:image" content="images/shares/share-thumb_200x200.jpg">
+<!-- //SNS Share ======================================= -->
+
+<link rel="stylesheet" href="{{ path }}assets/css/df.vendors.css">
+
+<link rel="stylesheet" href="{{ path }}assets/css/df.global.css">
+<link rel="stylesheet" href="{{ path }}assets/css/df.app.css">
+
+<script type="text/javascript" src="{{ path }}assets/js/df.vendors.js"></script>
+{%- endmacro %}

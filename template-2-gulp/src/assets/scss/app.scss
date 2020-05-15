@@ -1,0 +1,54 @@
+body{
+    header {
+        height:100px;
+        background: gray;
+
+        ul{
+            display: flex;
+            padding:10px;
+        }
+
+        a{
+            font-size: 16px;
+            padding:10px;
+            color:black;
+
+            &.active{
+                color:blue;
+                font-weight: bold;
+            }
+        }
+    }
+
+    main{
+        padding:10px;
+
+        h1{
+            font-size: 24px;
+            color: black
+        }
+
+        strong{
+            color:black;
+        }
+    }
+
+    footer {
+        height:100px;
+        background: darkgray;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
