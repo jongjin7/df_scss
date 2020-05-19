@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+.sec-4{
+    .sec-cont{
+        padding: 60px 0 110px;
+        .gallery-list{
+            max-width:1090px;
+            margin: 0 auto;
+
+            .swiper-button-prev, .swiper-button-next {
+                width: 45px; height: 110px;
+                margin-top: -55px;
+            }
+            .swiper-button-next {
+                background: url('../images/contents/introduction/swiper_btn_next.svg') 50% 50% no-repeat;
+            }
+            .swiper-button-prev {
+                background: url('../images/contents/introduction/swiper_btn_prev.svg') 50% 50% no-repeat;
+            }
+
+            .gallery-top{
+                .img-holder{
+                    .img{
+                        height: 656px;
+                    }
+
+                    figcaption{
+                        display: none;
+                    }
+                }
+            }
+
+            .gallery-thumbs{
+                margin-top: 70px;
+                &:after{
+                    position: absolute; right:0; top:0;
+                    z-index: 10;
+                    display: block;
+                    //@include per-converter(width, 260, 1090);
+                    width:186px;
+                    height:100%;
+                    background-image: linear-gradient(to right, rgba(#fcfcfc, 0), rgba(#fcfcfc, 1));
+                    pointer-events: none;
+                }
+                .list-wrap{
+
+                }
+                .list-item{
+
+                    .img-holder{
+                        position: relative;
+                        width:170px;
+                        height: 170px;
+                        margin:0 auto;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        figcaption{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+
+                            opacity: 0;
+                            position: absolute; left:0; top:0; right:0; bottom:0;
+                            background-color: rgba($base-color, 0.9);
+
+                            text-align: center;
+                            color:#fff;
+                            line-height: 1;
+
+                            transition: all 0.15s ease;
+
+                            &:before{
+                                display: block;
+                                font-size: 26px;
+                                content: attr(data-num);
+                            }
+
+                            .txt{
+                                display: block;
+                                margin-top: 0.6em;
+                                font-size: 19px;
+                            }
+                        }
+                    }
+
+                    &:hover,
+                    &.swiper-slide-thumb-active{
+                        figcaption{
+                            opacity: 1;
+
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover user-scalable=no">
+
+        <!-- Default Site info -->
+        <title>HTML Template for designfever</title>
+		<meta name="title" content="">
+        <meta name="description" content="This is designfever!" />
+        <meta name="keywords" content="df, design, fever, designfever, IX, good" />
+        <meta name="apple-mobile-web-app-title" content="dev.designfever">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+        <!-- Favorites Thumbnails -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="image_src" href="share-thumb_200x200.png">
+
+        <!-- for SNS -->
+        <!-- *********************************************************************************************** -->
+        <!-- todo 쉐어 이미지 경로는 full-url경로로 작성할 것 -->
+
+        <!-- FB -->
+        <meta property="og:site_name" content="dev.designfever">
+        <meta property="og:title" content="dev.designfever">
+        <meta property="og:description" content="This is designfever!">
+        <meta property="og:url" content="http://dev.designfever.com/">
+        <meta property="og:image" content="http://dev.designfever.com/share-thumb_200x200.png">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="ko_KR" />
+
+        <!-- TW -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="dev.designfever">
+        <meta name="twitter:description" content="This is designfever!">
+        <meta name="twitter:url" content="http://dev.designfever.com/">
+        <meta name="twitter:image" content="http://dev.designfever.com/share-thumb_200x200.png">
+
+
+        <!-- common stylesheet -->
+        <link type="text/css" rel="stylesheet" href="./assets/css/common.css">
+
+        <!-- common JS -->
+        <script src="./assets/vendors/modernizr-detectizr.js"></script>
+        <script type="text/javascript" src="./assets/vendors/jquery-3.4.1.min.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script type="text/javascript" src="./assets/js/common/GA_TrackingCode.js"></script>
+        <script type="text/javascript">
+            TrackingCode.pageTagging( 'main' );
+        </script>
+
+        <!-- sns share API FN -->
+        <script type="text/javascript" src="./assets/js/common/share.api.js"></script>
+        <script type="text/javascript">
+            function share_to_TW() { callShare( 'TW' ); }		// twitter
+            function share_to_FB() { callShare( 'FB' ); }		// Facebook
+            function share_to_PR() { callShare( 'PR' ); }		// pinterest
+            function share_to_GL() { callShare( 'GL' ); }		// google plus
+            function callShare( $sns_id ) {
+                var TITLE = $('meta[name=title]').attr('content');
+                var DEC = $('meta[name=description]').attr('content');
+                var THUMB_BIG = 'http://dev.designfever.com/share-thumb-big_400x400.png';
+                var URL = "http://dev.designfever.com/";
+                share_contents( $sns_id, URL, TITLE, DEC,  THUMB_BIG );
+            }
+        </script>
+
+        <!-- ------------------------------------------------------------------------------------------------------ -->
+        <!-- work area -------------------------------------------------------------------------------------------- -->
+
+        <!-- CSS for page -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/vendors/swiper/swiper.min.css">
+    </head>
+
+<body>
+    <!-- Skip Nav -->
+    <div id="skip-navi">
+        <a href="#main"><span>본문 바로가기</span></a>
+    </div>
+
+    <div id="app">
+        <div class="wrapper">
+            <!-- Page Content -->
+            <header style="height:100px; background-color: gray">헤더입니다.</header>
+
+            <main id="main">
+                <section class="sec-4">
+                    <div class="inner-wrap">
+                        <div class="sec-title">
+                            <strong class="cap">병원 둘러보기</strong>
+                            <h2 class="title">
+                                편안한 치료를 위한 <br class="_m"> 최적의 공간
+                            </h2>
+                        </div>
+
+                        <div class="sec-cont">
+                            <div class="gallery-list" id="gallery-container">
+                                <div class="swiper-container gallery-top">
+                                    <ol class="list-wrap swiper-wrapper">
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_1.jpg')"></span>
+                                                <figcaption><span class="txt">병원전경</span></figcaption>
+                                            </figure>
+                                        </li>
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_2.jpg')"></span>
+                                                <figcaption><span class="txt">병원입구</span></figcaption>
+                                            </figure>
+                                        </li>
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_3.jpg')"></span>
+                                                <figcaption><span class="txt">대기실</span></figcaption>
+                                            </figure>
+                                        </li>
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_4.jpg')"></span>
+                                                <figcaption><span class="txt">엑스레이실</span></figcaption>
+                                            </figure>
+                                        </li>
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_5.jpg')"></span>
+                                                <figcaption><span class="txt">CT실</span></figcaption>
+                                            </figure>
+                                        </li>
+                                        <li class="list-item swiper-slide">
+                                            <figure class="img-holder image-cover">
+                                                <span class="img" style="background-image: url('./assets/images/contents/portfolio/hospital_photo_6.jpg')"></span>
+                                                <figcaption><span class="txt">시술실(1)</span></figcaption>
+                                            </figure>
+                                        </li>
+                                    </ol>
+                                    <!-- controller -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+
+                                <!-- Thumbnail list -->
+                                <div class="swiper-container gallery-thumbs">
+                                    <div class="list-wrap swiper-wrapper">
+                                        <!-- copy items -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer style="height:100px; background-color: gray">풋터입니다.</footer>
+            <!-- //Page Content -->
+        </div>
+    </div>
+
+    <!-- VendorJS -->
+    <script src="assets/vendors/jquery.easing-1.3.min.js"></script>
+    <script src="assets/vendors/jquery.mousewheel.js"></script>
+    <script src="assets/vendors/swiper/swipe.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/interactive/App.js"></script>
+</body>
+</html>

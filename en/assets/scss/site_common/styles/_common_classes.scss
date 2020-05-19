@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+// ---------------------------------- Site common classes ---------------------------------- //
+
+// br
+br{
+  &._pc{
+    display: block;
+  }
+  &._m{
+    display: none;
+  }
+
+  //적응형 사이트
+  //@media only screen and ( min-resolution: 192dpi),
+  //  only screen and ( min-resolution: 2dppx) {
+  //  @at-root html.mobile &{
+  //    &._pc{
+  //      display: none;
+  //    }
+  //    &._m{
+  //      display: block;
+  //    }
+  //  }
+  //}
+
+  //반응형 사이트
+  @media only screen and (max-width: $screen-mobile-max){
+      &._pc{
+        display: none;
+      }
+      &._m{
+        display: block;
+      }
+  }
+}
+
+
+
+

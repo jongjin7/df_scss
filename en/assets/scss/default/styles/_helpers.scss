@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+// ---------------------------------- Default helper classes ---------------------------------- //
+
+.blind{
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  text-indent: -9999px !important;
+  font-size: 0 !important;
+  opacity:0;
+  overflow: hidden !important;
+}
+
+// hide & show
+.hide{display:none !important;}
+.show{display:block !important;}
+.visible-hide { visibility: hidden !important;}
+.visible-show { visibility: visible !important;}
+
+// text-align
+.talign{
+  &-l{
+    text-align: left;
+  }
+  &-c{
+    text-align: center;
+  }
+  &-r{
+    text-align: right;
+  }
+}
+
+// text-style
+.upper-case{
+  text-transform: uppercase !important;
+}
+.lower-case{
+  text-transform: lowercase !important;
+}
+
+
+// br
+br{
+  &._pc{
+    display: block;
+  }
+  &._m{
+    display: none;
+  }
+
+  //적응형 사이트
+  //@media only screen and ( min-resolution: 192dpi),
+  //  only screen and ( min-resolution: 2dppx) {
+  //  @at-root html.mobile &{
+  //    &._pc{
+  //      display: none;
+  //    }
+  //    &._m{
+  //      display: block;
+  //    }
+  //  }
+  //}
+
+  //반응형 사이트
+  @media only screen and (max-width: $screen-mobile-max){
+      &._pc{
+        display: none;
+      }
+      &._m{
+        display: block;
+      }
+  }
+}
+
+
+
+
