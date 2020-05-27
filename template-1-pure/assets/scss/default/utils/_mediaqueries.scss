@@ -28,9 +28,15 @@
 
 // --- responsive breakpoint --------------------------------------------------------------------
 
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
 @mixin break-point-max($max){
     @if(type_of($max) == string){
-        $max: map-get($grid-breakpoints, $max);
+        $next: breakpoint-next($max, $grid-breakpoints);
+        $max: map-get($grid-breakpoints, $next) - .02;
     }
 
     @include mq($max-width:$max){

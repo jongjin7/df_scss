@@ -1,64 +1,87 @@
-/*=========================================================== [ 스크립트 종류 ] =======================================================================*/
+/*=========================================================== [ Define App's Object ] =======================================================================*/
 
-console.log('main console!');
+if (typeof window.App == 'undefined' || !window.App) {
+    window.App = {};
+}
 
-// 병원 갤러리
-var _gallerySwiper = function(){
-    var galleryContainer = $('#gallery-container');
-    var galleryTopContainer = galleryContainer.find('.gallery-top');
-    var galleryThumbContainer = galleryContainer.find('.gallery-thumbs > .list-wrap');
-
-    //갤러리 썸네일 리스트 생성
-    var galleryList = galleryTopContainer.find('.swiper-wrapper').children();
-    var tempArr =[];
-    galleryList.each(function(idx){
-        var targetReplace ='figcaption';
-        //console.log('aaa', $(this).html().replace(targetReplace, targetReplace +' data-num="'+ idx +'"'))
-        tempArr.push('<a href="#" onclick="return false;" class="'+ $(this).attr('class') +'">'+ $(this).html().replace(targetReplace, targetReplace +' data-num="'+ (idx+1) +'"') +'</a>');
-    });
-
-    galleryThumbContainer.html(tempArr);
-
-    var galleryThumbsOptions;
-    var galleryTopOptions;
-    if(Detectizr.device.type == 'mobile'){
-        galleryThumbsOptions = {
-            slidesPerView: 3,
-            freeMode: true,
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-        }
-    }else{
-        galleryThumbsOptions = {
-            slidesPerView: 6,
-            freeMode: true,
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-        }
+App.namespace = function (ns_string) {
+    let parts = ns_string.split('.'), parent = App, i; // 처음에 중복되는 전역 객체명은 제거한다.
+    if (parts[0] === 'App') {
+        parts = parts.slice(1);
     }
-    //갤러리 썸네일 슬라이드
-    var galleryThumbs = new Swiper('.gallery-thumbs', galleryThumbsOptions);
 
-    if(Detectizr.device.type == 'mobile'){
-        galleryTopOptions = {
-            spaceBetween: 10,
-            thumbs: {
-                swiper: galleryThumbs,
-            },
-        };
-    }else{
-        galleryTopOptions = {
-            spaceBetween: 10,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            thumbs: {
-                swiper: galleryThumbs,
-            },
-        };
+    for (i = 0; i < parts.length; i++ ) {
+        if (typeof parent[parts[i]] === 'undefined') {
+            parent[parts[i]] = {};
+        }
+
+        parent = parent[parts[i]];
     }
-    //갤러리 상단 슬라이드
-    var galleryTop = new Swiper('.gallery-top', galleryTopOptions);
+
+    return parent;
 };
-_gallerySwiper();
+
+// namespace 구성
+App.namespace('App.ui');
+App.namespace('App.content');
+
+
+/*=========================================================== [ Global Event  ] =======================================================================*/
+if (typeof window.GlobalEvent == 'undefined' || !window.GlobalEvent) {
+    window.GlobalEvent = {};
+    window.GlobalEvent.CHANGE_SCROLL = "change_scroll";
+    window.GlobalEvent.CHANGE_RESIZE = "change_resize";
+    window.GlobalEvent.CHANGE_DEVICE_SIZE = "change_device_size";
+    window.GlobalEvent.MOUSE_WHEEL = "mousewheel";
+}
+
+/*=========================================================== [ App Start ] =======================================================================*/
+
+// Module Loading!
+define(['jquery', 'swiper'], function ($, Swiper) {
+
+    (function(ns){
+        const Common = (function(){
+            var _init = function(){
+
+                ns.ui.main.init();
+
+
+
+                var mySwiper = new Swiper ('.swiper-container', {
+                    // Optional parameters
+                    loop: true,
+
+                    // If we need pagination
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+
+
+                })
+
+            };
+
+            return {
+                init: _init
+            }
+        })();
+
+        ns.common = Common;
+
+    }(App || {}));
+
+    $(document).ready(function(){
+        App.common.init();
+        $('#app').addClass('show');
+    });
+});
+
+
+
