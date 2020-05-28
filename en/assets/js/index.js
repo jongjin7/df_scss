@@ -1,44 +1,48 @@
 requirejs.config({
-    baseUrl: './assets/vendors',
+    baseUrl: './assets',
     paths: {
-        app: '../test',
-        jquery:'jquery-3.4.1.min',
-        swiper:'swiper/swipe'
+        jquery:'vendors/jquery-3.4.1.min',
+        swiper:'vendors/swiper/swipe',
+        //app:'./js/interactive/App'
     }
 });
 
-const vendorFiles =['modernizr-detectizr','jquery.mousewheel'];
+const vendorFiles =['vendors/modernizr-detectizr','vendors/jquery.mousewheel'];
+//requirejs(vendorFiles);
 
-const pathCommon = '../js/common/';
+const pathCommon = './js/common/';
 const commonFiles = ['GA_TrackingCode','GlobalVars','share.api'];
 
-
-const pathUtil = '../js/utils/';
+const pathUtil = './js/utils/';
 const utilFiles = ['DF.utils', 'DF.validator', 'layout','resize-event','scroll-event'];
 
-const pathInteractive = '../js/interactive/';
+const pathInteractive = './js/interactive/';
 const appFiles = ['App', 'ui', 'ui.sub'];
 
 
-requirejs(vendorFiles);
 
 //커먼 모듈
 let tmpCommonArr =[];
-commonFiles.forEach(function(filename){
-    tmpCommonArr.push(pathCommon + filename);
-});
-requirejs(tmpCommonArr);
+if(commonFiles.length > 0){
+    commonFiles.forEach(function(filename){
+        tmpCommonArr.push(pathCommon + filename);
+    });
+    tmpCommonArr = tmpCommonArr.concat(vendorFiles);
+}
+//requirejs(tmpCommonArr);
 
 //유틸 모듈
 let tmpUtilArr =[];
 utilFiles.forEach(function(filename){
     tmpUtilArr.push(pathUtil + filename);
 });
-requirejs(tmpUtilArr);
+//requirejs(tmpUtilArr);
 
 //앱 모듈
 let tmpAppArr =[];
 appFiles.forEach(function(filename){
     tmpAppArr.push(pathInteractive + filename);
 });
-requirejs(tmpAppArr);
+
+//최종 js 배열 합치기
+requirejs(tmpCommonArr.concat(tmpUtilArr).concat(tmpAppArr));

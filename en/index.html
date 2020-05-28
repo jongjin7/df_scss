@@ -90,62 +90,96 @@
             <header style="height:100px; background-color: gray">헤더입니다.</header>
 
             <main id="main">
-                <section class="sec-4">
+                <section class="sec-1">
                     <div class="inner-wrap">
-                        <div class="sec-title">
-                            <strong class="cap">병원 둘러보기</strong>
-                            <h2 class="title">
-                                편안한 치료를 위한 <br class="_m"> 최적의 공간
-                            </h2>
-                        </div>
+                        <style>
+                            .swiper-container {
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .swiper-wrapper{
+                                height:100%;
+                            }
+                            .swiper-slide {
+                                text-align: center;
+                                font-size: 18px;
+                                background: #fff;
 
-                        <div class="sec-cont">
-                            <style>
-                                .swiper-container {
-                                    width: 100%;
-                                    height: 100%;
-                                }
-                                .swiper-slide {
-                                    text-align: center;
-                                    font-size: 18px;
-                                    background: #fff;
+                                /* Center slide text vertically */
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: -webkit-flex;
+                                display: flex;
+                                -webkit-box-pack: center;
+                                -ms-flex-pack: center;
+                                -webkit-justify-content: center;
+                                justify-content: center;
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                -webkit-align-items: center;
+                                align-items: center;
 
-                                    /* Center slide text vertically */
-                                    display: -webkit-box;
-                                    display: -ms-flexbox;
-                                    display: -webkit-flex;
-                                    display: flex;
-                                    -webkit-box-pack: center;
-                                    -ms-flex-pack: center;
-                                    -webkit-justify-content: center;
-                                    justify-content: center;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    -webkit-align-items: center;
-                                    align-items: center;
-                                }
-                            </style>
+                                height:100%; background: chocolate;
 
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">Slide 1</div>
-                                    <div class="swiper-slide">Slide 2</div>
-                                    <div class="swiper-slide">Slide 3</div>
-                                    <div class="swiper-slide">Slide 4</div>
-                                    <div class="swiper-slide">Slide 5</div>
-                                    <div class="swiper-slide">Slide 6</div>
-                                    <div class="swiper-slide">Slide 7</div>
-                                    <div class="swiper-slide">Slide 8</div>
-                                    <div class="swiper-slide">Slide 9</div>
-                                    <div class="swiper-slide">Slide 10</div>
-                                </div>
-                                <!-- Add Pagination -->
-                                <div class="swiper-pagination"></div>
+
+                            }
+                            .swiper-slide:nth-child(even){
+                                background: paleturquoise;
+                            }
+
+                            section{
+                                background-color: lightgray;
+                                padding:10px;
+
+                            }
+                            section:nth-child(even){
+                                background-color: #9E9E9E;
+                            }
+                            section .inner-wrap{
+                                height:100vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            section:not(:first-child) .inner-wrap{
+                                font-size: 64px;
+                                color: gold;
+                            }
+
+                            header, footer{
+                                background-color: #444;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 48px;
+                                color:#000;
+                            }
+                        </style>
+
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">Slide 1</div>
+                                <div class="swiper-slide">Slide 2</div>
+                                <div class="swiper-slide">Slide 3</div>
+                                <div class="swiper-slide">Slide 4</div>
+                                <div class="swiper-slide">Slide 5</div>
+                                <div class="swiper-slide">Slide 6</div>
+                                <div class="swiper-slide">Slide 7</div>
+                                <div class="swiper-slide">Slide 8</div>
+                                <div class="swiper-slide">Slide 9</div>
+                                <div class="swiper-slide">Slide 10</div>
                             </div>
-
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
                 </section>
+                <section class="sec-2"><div class="inner-wrap">#2</div></section>
+                <section class="sec-3"><div class="inner-wrap">#3</div></section>
+                <section class="sec-4"><div class="inner-wrap">#4</div></section>
+                <section class="sec-5"><div class="inner-wrap">#5</div></section>
+                <section class="sec-6"><div class="inner-wrap">#6</div></section>
             </main>
 
             <footer style="height:100px; background-color: gray">풋터입니다.</footer>
@@ -153,18 +187,6 @@
         </div>
     </div>
 
-<!--    <script type="text/javascript" src="./assets/vendors/jquery-3.4.1.min.js"></script>-->
-<!--    <script src="assets/vendors/jquery.mousewheel.js"></script>-->
-
-    <!--&lt;!&ndash; VendorJS &ndash;&gt;
-    <script src="assets/vendors/jquery.easing-1.3.min.js"></script>
-
-    <script src="assets/vendors/swiper/swipe.js"></script>
-
-    &lt;!&ndash; App JS &ndash;&gt;
-    <script src="assets/js/interactive/App.js"></script>
-    <script src="assets/js/interactive/ui.js"></script>
-    <script src="assets/js/interactive/ui.sub.js"></script>-->
     <script data-main="assets/js/index" src="./assets/vendors/require.js"></script>
 </body>
 </html>

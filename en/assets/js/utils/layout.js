@@ -1,8 +1,8 @@
-var width;
-var height;
+let width;
+let height;
 
-var scrollTop;
-var scrollLeft;
+let scrollTop;
+let scrollLeft;
 
 function windowResize(){
     width = window.innerWidth;
@@ -12,9 +12,9 @@ function windowResize(){
 function setViewport(){
     // viewport set : if tablet
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        var actual_width = screen.width;
-        var min_width = 1280;
-        var ratio = Math.min(actual_width / min_width);
+        let actual_width = screen.width;
+        let min_width = 1280;
+        let ratio = Math.min(actual_width / min_width);
         if (ratio < 1) {
             document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + actual_width);
         }else{
@@ -24,9 +24,8 @@ function setViewport(){
 }
 
 function windowScroll(){
-
-    var top = getScrollTop();
-    var left = getScrollLeft();
+    let top = getScrollTop();
+    let left = getScrollLeft();
 
     if(scrollTop != top){
         scrollTop = top;
@@ -38,27 +37,26 @@ function windowScroll(){
 }
 
 function getScrollTop(){
-    var doc = document.documentElement;
-    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+    let doc = document.documentElement;
+    let top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
     return top;
 }
 
 function getScrollLeft(){
-    var doc = document.documentElement;
-    var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    let doc = document.documentElement;
+    let left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
     return left;
 }
 
 // Quick Menu position (desktop)
 function setQuickMenuPos($scrollTop){
-
-    var header = document.querySelector('header');
+    const header = document.querySelector('header');
     if(header == null) return;
     else{
-        var top = header.offsetHeight - $scrollTop;
+        let top = header.offsetHeight - $scrollTop;
         if(top < 0) top = 0;
 
-        var quick = document.querySelector('.desktop .side-menu-wrap .quick-menu-wrap');
+        let quick = document.querySelector('.desktop .side-menu-wrap .quick-menu-wrap');
         if(quick == null) quick = document.querySelector('.tablet.ie  .side-menu-wrap .quick-menu-wrap');
 
         if(quick != null) quick.style.top = top+"px";
@@ -76,10 +74,11 @@ function reset(){
 var domIsReady = (function(domIsReady) {
     var isBrowserIeOrNot = function() {
         return (!document.attachEvent || typeof document.attachEvent === "undefined" ? 'not-ie' : 'ie');
-    }
+    };
 
     domIsReady = function(callback) {
         if(callback && typeof callback === 'function'){
+
             if(isBrowserIeOrNot() !== 'ie') {
                 document.addEventListener("DOMContentLoaded", function() {
                     return callback();
@@ -94,14 +93,14 @@ var domIsReady = (function(domIsReady) {
         } else {
             console.error('The callback is not a function!');
         }
-    }
+    };
 
     return domIsReady;
 })(domIsReady || {});
 
 (function(document, window, domIsReady, undefined) {
     domIsReady(function() {
-        //console.log('My DOM is ready peeps!');
+        console.log('My DOM is ready peeps!');
 
         reset();
 
@@ -118,4 +117,7 @@ var domIsReady = (function(domIsReady) {
     });
 })(document, window, domIsReady);
 
-window.Layout = {reset:reset};
+window.Layout = {
+    reset:reset
+};
+

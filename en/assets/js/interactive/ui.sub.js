@@ -1,10 +1,9 @@
 /*=========================================================== [ UI ] =======================================================================*/
+define(function () {
+    const Module = (function (ns) {
+        const _init = function () {
 
-(function(ns){
-    var Module = (function(){
-        var _init = function(){
-
-            console.log('UI Module Start!', DF.utils.getScrollPosY(document.querySelector('body')))
+            console.log('UI Module Start!', ns,  DF.utils.getScrollPosY(document.querySelector('body')))
             /*$(".sec-4").on("mousewheel", function(event, delta, deltaX, code, detail, deltaFactor){
                 console.log( deltaX, event, code, deltaFactor);
                 // if(delta>0){
@@ -18,15 +17,16 @@
                 // }
             });*/
 
+            App.ui.main.ui_main_fn('ui_sub');
+
 
         };
 
         return {
             init: _init
         }
-    })();
+    })(App);
 
-    ns.ui.sub = Module;
-
-}(App || {}));
+    App.ui.sub = Module;
+});
 

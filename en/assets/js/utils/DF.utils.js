@@ -1,10 +1,10 @@
 
-var utils = (function (){
+const utils = (function (){
 
     ////////////////////////////////////////////////////////////////////
     // add class FN
     function _toggleClass(element, className) {
-        var check = new RegExp("(\\s|^)" + className + "(\\s|$)");
+        const check = new RegExp("(\\s|^)" + className + "(\\s|$)");
         if (check.test(element.className)) {
             element.className = element.className.replace(check, " ").trim();
         }else {
@@ -13,14 +13,14 @@ var utils = (function (){
     }
 
     function _addClass(element, className) {
-        var check = new RegExp("(\\s|^)" + className + "(\\s|$)");
+        const check = new RegExp("(\\s|^)" + className + "(\\s|$)");
         if (!check.test(element.className)) {
             element.className += " " + className;
         }
     }
 
     function _removeClass(element, className) {
-        var check = new RegExp("(\\s|^)" + className + "(\\s|$)");
+        const check = new RegExp("(\\s|^)" + className + "(\\s|$)");
         element.className = element.className.replace(check, " ").trim();
     }
 
@@ -36,20 +36,20 @@ var utils = (function (){
     function _triggerEvent(el, type){
         if ('createEvent' in document) {
             // modern browsers, IE9+
-            var e = document.createEvent('HTMLEvents');
+            const e = document.createEvent('HTMLEvents');
             e.initEvent(type, false, true);
             el.dispatchEvent(e);
         } else {
             // IE 8
-            var e = document.createEventObject();
+            const e = document.createEventObject();
             e.eventType = type;
             el.fireEvent('on'+e.eventType, e);
         }
     }
 
     function _addParamsUrl($url, $name, $value){
-        var url = $url;
-        var arr_hash = url.split("#")
+        let url = $url;
+        let arr_hash = url.split("#")
 
         if(arr_hash.length >1){
             if(arr_hash[0].indexOf("?") > -1)   url = arr_hash[0] + "&";
@@ -67,15 +67,15 @@ var utils = (function (){
 
     // 현재 스크롤 Y 값
     function _getScrollPosY() {
-        var doc = document.documentElement;
-        var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+        const doc = document.documentElement;
+        const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
         return top;
     }
 
     function _scrollTo(element, to, duration) {
         if (duration < 0) return;
-        var difference = to - element.scrollTop;
-        var perTick = difference / duration * 2;
+        const difference = to - element.scrollTop;
+        const perTick = difference / duration * 2;
 
         setTimeout(function () {
             element.scrollTop = element.scrollTop + perTick;
@@ -84,8 +84,8 @@ var utils = (function (){
     }
 
     function _getOffset( el ) {
-        var _x = 0;
-        var _y = 0;
+        let _x = 0;
+        let _y = 0;
         while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
             _x += el.offsetLeft - el.scrollLeft;
             _y += el.offsetTop - el.scrollTop;
@@ -116,7 +116,6 @@ var utils = (function (){
 })();
 
 (function(){
-
     if(window.DF == undefined) window.DF = {};
     window.DF.utils = utils;
 

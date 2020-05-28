@@ -40,47 +40,49 @@ if (typeof window.GlobalEvent == 'undefined' || !window.GlobalEvent) {
 // Module Loading!
 define(['jquery', 'swiper'], function ($, Swiper) {
 
-    (function(ns){
-        const Common = (function(){
-            var _init = function(){
+    const Common = (function(ns){
+        var _init = function(){
+            ScrollEvent.created();
+            ResizeEvent.created();
 
-                ns.ui.main.init();
-
-
-
-                var mySwiper = new Swiper ('.swiper-container', {
-                    // Optional parameters
-                    loop: true,
-
-                    // If we need pagination
-                    pagination: {
-                        el: '.swiper-pagination',
-                    },
-
-                    // Navigation arrows
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
+            ns.ui.main.init();
 
 
-                })
 
-            };
+            var mySwiper = new Swiper ('.swiper-container', {
+                // Optional parameters
+                loop: true,
+                spaceBetween:30,
 
-            return {
-                init: _init
-            }
-        })();
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
 
-        ns.common = Common;
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
 
-    }(App || {}));
+
+            })
+        };
+
+        return {
+            init: _init
+        }
+    })(App);
+
+    App.common = Common;
 
     $(document).ready(function(){
         App.common.init();
         $('#app').addClass('show');
     });
+
+    // App 전역객체 배포
+    return App;
 });
 
 
