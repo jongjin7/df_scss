@@ -3,7 +3,7 @@ requirejs.config({
     paths: {
         jquery:'vendors/jquery-3.4.1.min',
         swiper:'vendors/swiper/swipe',
-        //app:'./js/interactive/App'
+        app:'./js/interactive/App'
     }
 });
 
@@ -14,10 +14,10 @@ const pathCommon = './js/common/';
 const commonFiles = ['GA_TrackingCode','GlobalVars','share.api'];
 
 const pathUtil = './js/utils/';
-const utilFiles = ['DF.utils', 'DF.validator', 'layout','resize-event','scroll-event'];
+const utilFiles = ['DF.utils', 'DF.validator','resize-event','scroll-event'];
 
 const pathInteractive = './js/interactive/';
-const appFiles = ['App', 'ui', 'ui.sub'];
+const appFiles = ['frame', 'ui.sub'];
 
 
 

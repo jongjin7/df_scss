@@ -87,7 +87,20 @@
     <div id="app">
         <div class="wrapper">
             <!-- Page Content -->
-            <header style="height:100px; background-color: gray">헤더입니다.</header>
+            <header>
+                <div class="inner-wrap fixed">
+                    <div class="logo">헤더입니다.</div>
+                    <nav class="gnb">
+                        <ul class="gnb-wrap" style="display:flex;">
+                            <li><a href="#sec-1">메뉴1</a></li>
+                            <li><a href="#sec-2">메뉴2</a></li>
+                            <li><a href="#sec-3">메뉴3</a></li>
+                            <li><a href="#sec-4">메뉴4</a></li>
+                            <li><a href="#sec-5">메뉴5</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
             <main id="main">
                 <section class="sec-1">
@@ -99,29 +112,16 @@
                             }
                             .swiper-wrapper{
                                 height:100%;
+                                display: flex;
                             }
                             .swiper-slide {
                                 text-align: center;
                                 font-size: 18px;
                                 background: #fff;
-
-                                /* Center slide text vertically */
-                                display: -webkit-box;
-                                display: -ms-flexbox;
-                                display: -webkit-flex;
                                 display: flex;
-                                -webkit-box-pack: center;
-                                -ms-flex-pack: center;
-                                -webkit-justify-content: center;
                                 justify-content: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                -webkit-align-items: center;
                                 align-items: center;
-
                                 height:100%; background: chocolate;
-
-
                             }
                             .swiper-slide:nth-child(even){
                                 background: paleturquoise;
@@ -147,13 +147,58 @@
                                 color: gold;
                             }
 
-                            header, footer{
-                                background-color: #444;
-                                display: flex;
+                            header .inner-wrap, footer{
+
                                 align-items: center;
-                                justify-content: center;
-                                font-size: 48px;
+                                height:100px;
+                                justify-content: space-between;
+                                font-size: 28px;
+                                padding: 20px;
                                 color:#000;
+                            }
+                            header{
+                                position: relative;
+                            }
+                            header .inner-wrap{
+                                position:fixed;
+                                background-color: rgba(0,0,0, 0.3);
+                                left:0; top:0; right:0;
+                                z-index: 1030;
+                                transition: top 0.3s ease-out;
+                                /* z-index규칙
+                                    $zindex-dropdown:          1000 !default;
+                                    $zindex-sticky:            1020 !default;
+                                    $zindex-fixed:             1030 !default;
+                                    $zindex-modal-backdrop:    1040 !default;
+                                    $zindex-modal:             1050 !default;
+                                    $zindex-popover:           1060 !default;
+                                    $zindex-tooltip:           1070 !default;
+                                */
+                            }
+
+                            .gnb{
+                                font-size: 16px;
+                            }
+                            .gnb li{
+                                margin:0 10px;
+                            }
+                            .gnb li a{
+                                padding: 5px;
+                            }
+                            .gnb li a.active,
+                            .gnb li a:hover{
+                                color:black;
+                                background-color: lightgray;
+                            }
+
+                            @media (min-width: 768px){
+                                header .inner-wrap{
+                                    display: flex;
+                                }
+
+                                footer{
+                                    display: flex;
+                                }
                             }
                         </style>
 
@@ -182,7 +227,7 @@
                 <section class="sec-6"><div class="inner-wrap">#6</div></section>
             </main>
 
-            <footer style="height:100px; background-color: gray">풋터입니다.</footer>
+            <footer style="background-color: gray">풋터입니다.</footer>
             <!-- //Page Content -->
         </div>
     </div>
