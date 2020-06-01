@@ -46,27 +46,11 @@ define(['jquery', 'swiper'], function ($, Swiper) {
             ResizeEvent.created();
 
             ns.ui.main.init();
+            ns.ui.sub.init();
 
 
 
-            var mySwiper = new Swiper ('.swiper-container', {
-                // Optional parameters
-                loop: true,
-                spaceBetween:30,
 
-                // If we need pagination
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-
-
-            })
         };
 
         return {

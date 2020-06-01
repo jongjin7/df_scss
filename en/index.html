@@ -91,21 +91,31 @@
                 <div class="inner-wrap fixed">
                     <div class="logo">헤더입니다.</div>
                     <nav class="gnb">
-                        <ul class="gnb-wrap" style="display:flex;">
-                            <li><a href="#sec-1">메뉴1</a></li>
-                            <li><a href="#sec-2">메뉴2</a></li>
-                            <li><a href="#sec-3">메뉴3</a></li>
-                            <li><a href="#sec-4">메뉴4</a></li>
-                            <li><a href="#sec-5">메뉴5</a></li>
+                        <ul class="gnb-wrap nav-bar" style="display:flex;">
+                            <li class="nav-item"><a class="nav-link" href="#main-sec-1">메뉴1</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#main-sec-2">메뉴2</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#main-sec-3">메뉴3</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#main-sec-4">메뉴4</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#main-sec-5">메뉴5</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
 
             <main id="main">
-                <section class="sec-1">
+                <section id="main-sec-1" class="sec-1">
                     <div class="inner-wrap">
                         <style>
+
+                            body{
+
+                            }
+                            #app, .wrapper, main{
+
+                            }
+                            main{
+                                scroll-snap-type: y proximity;
+                            }
                             .swiper-container {
                                 width: 100%;
                                 height: 100%;
@@ -130,16 +140,69 @@
                             section{
                                 background-color: lightgray;
                                 padding:10px;
+                                height:100vh;
+                                scroll-snap-align: start;
 
                             }
                             section:nth-child(even){
                                 background-color: #9E9E9E;
                             }
                             section .inner-wrap{
-                                height:100vh;
+                                height:100%;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
+                                background: #fff;
+                            }
+
+                            .sec-4{
+                                position: relative;
+                                padding:0;
+                            }
+                            .sec-4 .inner-wrap{
+                                position: absolute; left:0; top:0;
+                                width:100%; height:100%;
+                                display: block;
+                                overflow: hidden;
+
+                            }
+                            .sec-4 .inner-wrap.fixed{
+                                position: fixed;
+                                overflow-y: scroll;
+
+                            }
+
+
+                            .sec-4 .inner-wrap .scrolling{
+                                position: relative;
+                                height: 400vh;
+
+                            }
+
+                            .sec-4 .sub-sec{
+                                position: absolute;
+                                left:0; top:0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width:100%;
+                                height:100vh;
+                                font-size: 144px;
+                            }
+                            .sec-4 .sub-sec:not(:first-child){
+
+                                opacity: 0;
+                            }
+
+                            .sec-4 .inner-wrap.fixed .sub-sec{
+                                position: fixed;
+
+                            }
+                            .sec-4 .sub-sec:nth-child(even){
+                                background: #00C3B2;
+                            }
+                            .sec-4 .sub-sec:nth-child(odd){
+                                background: salmon;
                             }
 
                             section:not(:first-child) .inner-wrap{
@@ -185,6 +248,7 @@
                             .gnb li a{
                                 padding: 5px;
                             }
+                            .gnb li a.current,
                             .gnb li a.active,
                             .gnb li a:hover{
                                 color:black;
@@ -220,11 +284,19 @@
                         </div>
                     </div>
                 </section>
-                <section class="sec-2"><div class="inner-wrap">#2</div></section>
-                <section class="sec-3"><div class="inner-wrap">#3</div></section>
-                <section class="sec-4"><div class="inner-wrap">#4</div></section>
-                <section class="sec-5"><div class="inner-wrap">#5</div></section>
-                <section class="sec-6"><div class="inner-wrap">#6</div></section>
+                <section id="main-sec-2" class="sec-2"><div class="inner-wrap">#2</div></section>
+                <section id="main-sec-3" class="sec-3"><div class="inner-wrap">#3</div></section>
+                <section id="main-sec-4" class="sec-4">
+                    <div class="inner-wrap">
+                        <div class="scrolling">
+                            <div class="sub-sec">#4-1</div>
+                            <div class="sub-sec">#4-2</div>
+                            <div class="sub-sec">#4-3</div>
+                            <div class="sub-sec">#4-4</div>
+                        </div>
+                    </div>
+                </section>
+                <section id="main-sec-5" class="sec-5"><div class="inner-wrap">#5</div></section>
             </main>
 
             <footer style="background-color: gray">풋터입니다.</footer>

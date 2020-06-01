@@ -1,5 +1,5 @@
 /*=========================================================== [ UI ] =======================================================================*/
-define(['app'], function (App) {
+define(['app','swiper'], function (App,Swiper) {
     const Module = (function (ns) {
         const _init = function () {
 
@@ -17,7 +17,25 @@ define(['app'], function (App) {
                 // }
             });*/
 
-            App.ui.main.ui_main_fn('ui_sub');
+            var mySwiper = new Swiper ('.swiper-container', {
+                // Optional parameters
+                loop: true,
+                spaceBetween:30,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+
+            })
+
 
 
         };
