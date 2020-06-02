@@ -38,6 +38,8 @@ define(['app','swiper'], function (App,Swiper) {
 
 
 
+
+
         };
 
         return {

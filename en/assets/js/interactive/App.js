@@ -38,7 +38,7 @@ if (typeof window.GlobalEvent == 'undefined' || !window.GlobalEvent) {
 /*=========================================================== [ App Start ] =======================================================================*/
 
 // Module Loading!
-define(['jquery', 'swiper'], function ($, Swiper) {
+define(['jquery','swiper'], function ($, Swiper) {
 
     const Common = (function(ns){
         var _init = function(){

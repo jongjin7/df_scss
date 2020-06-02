@@ -3,7 +3,7 @@ define(['app'], function (App) {
     const UI = (function (ns) {
         let gnbNavItem;
 
-        let scrollTop, scrollBottom, oldScrollTop, isScrolling, preScrollTime = 0, currentScrollTime;
+        let scrollTop, scrollBottom, oldScrollTop
         let arrSectionOffsetTop =[];
         const _init = function () {
 
@@ -13,12 +13,6 @@ define(['app'], function (App) {
             $(window.GlobalEvent).on(window.GlobalEvent.CHANGE_SCROLL, _onScrollHandler);
 ``
             $(window.GlobalEvent).on(window.GlobalEvent.CHANGE_DEVICE_SIZE, _onChangeDeviceSizeHandler)
-
-            // $(window).mousewheel(function(e){
-            //     console.log('mouse wheel e:',e.target,'e:currentTarget-', e.currentTarget, e)
-            // })
-
-
 
             //dom
             gnbNavItem = $('.gnb .nav-item')
@@ -33,84 +27,116 @@ define(['app'], function (App) {
 
         };
 
-        //$(window).scroll(()=> console.log('windowScroll', $(window).scrollTop()))
-
-        let secCount = 0;
         const _onScrollHandler = function(e, $val){
-
+            console.log('_onScrollHandler')
             if(typeof e !== "undefined") {
                 scrollTop = Math.round($val);
             }else{
                 scrollTop = Math.round($(window).scrollTop());
             }
+
             scrollBottom = scrollTop + $(window).height();
             
             oldScrollTop = scrollTop;
 
-
-            // preScrollTime = currentScrollTime;
-            // currentScrollTime = e.timeStamp;
-
-           //console.log('time', preScrollTime, currentScrollTime)
-            //if(currentScrollTime - preScrollTime <100) isScrolling = true;
            //_headerFixed()
 
             _setSectionOffsetTop();
             _activeGnbMenu()
+
+
+
             
             //4번째 섹션에 들어오면 윈도우 스크롤 잠금, 내부 커스텀 스크롤 사용
-            if(scrollTop > arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[3]*1.015){
+            if(scrollTop > arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[4]){
                 //$(window).scrollTop(arrSectionOffsetTop[3]); // 네번째 섹션에 걸리도록 스냅 적용
+                if(!$('.sec-4').hasClass('fixed')){
+                    $('.sec-4').addClass('fixed');
+                    console.log('before', arrSectionOffsetTop)
+                    _setSectionOffsetTop();
+                    console.log('after', arrSectionOffsetTop)
+                }
+
+
+
+                if(scrollTop <= arrSectionOffsetTop[3] + $(window).height()*0.5){
+                    console.log('1st')
+                    $('.sec-4 .sub-sec').eq(0).fadeIn(0, function(){
+                        $('.sec-4 .sub-sec').eq(1).removeAttr('style')
+                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                    });
+                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*0.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1){
+                    console.log('2nd')
+                    $('.sec-4 .sub-sec').eq(1).fadeIn(0, function(){
+                        $('.sec-4 .sub-sec').eq(0).removeAttr('style')
+                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                    });
+                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1.5){
+                    console.log('3rd')
+                    $('.sec-4 .sub-sec').eq(2).fadeIn(0, function(){
+                        $('.sec-4 .sub-sec').eq(1).removeAttr('style')
+                        $('.sec-4 .sub-sec').eq(3).removeAttr('style')
+                    });
+                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*2){
+                    console.log('4th')
+                    $('.sec-4 .sub-sec').eq(3).fadeIn(0, function(){
+                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                    });
+                }
+            }else{
+                $('.sec-4').removeClass('fixed');
+                $('.sec-4 .sub-sec').removeAttr('style')
+                _setSectionOffsetTop();
             }
 
 
 
             //console.log('scrollTop', arrSectionOffsetTop[3], scrollTop)
-            if(scrollTop >= arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[4]*0.8){
-                console.log('4번째 섹션 접근, 스크롤 잠금')
-                $('body').addClass('overflow-hidden');
-                $('.sec-4 .inner-wrap').addClass('fixed');
-
-                $('.sec-4 .inner-wrap').on('mousewheel.inner-scroll', function(e) {
-                    if(secCount >= 0 && secCount < $('.sec-4 .sub-sec').length-1 ){
-                        if (e.originalEvent.deltaY < 0) {
-                            //scroll up
-                            $('.sec-4 .inner-wrap').stop().animate({scrollTop: '-=' + $(window).height()}, 500, function () {
-                                $('.sec-4 .sub-sec:not(:first-child)').eq(secCount--).css({
-                                    opacity: 0
-                                })
-                            });
-                        } else {
-                            //scroll down
-                            $('.sec-4 .inner-wrap').stop().animate({scrollTop: '+=' + $(window).height()}, 500, function () {
-                                $('.sec-4 .sub-sec').eq(++secCount).css({
-                                    opacity: 1
-                                })
-                            });
-                        }
-
-                        //prevent page fom scrolling
-                        return false;
-                    }else{
-                        console.log('end secCount', secCount)
-                        $('.sec-4 .inner-wrap').scrollTop(0).off('mousewheel.inner-scroll');
-                        $('.sec-4 .inner-wrap .sub-sec').removeAttr('style');
-                        $('.sec-4 .inner-wrap').removeClass('fixed');
-                        $('body').removeClass('overflow-hidden');
-
-
-                        
-                    }
-
-                });
-            }else{
-                // 서브섹션 카운트용 변수 초기화
-                if(secCount == $('.sec-4 .sub-sec').length-2){
-
-                    $(window).scrollTop(arrSectionOffsetTop[4]);
-                }
-                secCount =0;
-            }
+            // if(scrollTop >= arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[4]*0.8){
+            //     console.log('4번째 섹션 접근, 스크롤 잠금')
+            //     $('body').addClass('overflow-hidden');
+            //     $('.sec-4 .inner-wrap').addClass('fixed');
+            //
+            //     $('.sec-4 .inner-wrap').on('mousewheel.inner-scroll', function(e) {
+            //         if(secCount >= 0 && secCount < $('.sec-4 .sub-sec').length-1 ){
+            //             if (e.originalEvent.deltaY < 0) {
+            //                 //scroll up
+            //                 $('.sec-4 .inner-wrap').stop().animate({scrollTop: '-=' + $(window).height()}, 500, function () {
+            //                     $('.sec-4 .sub-sec:not(:first-child)').eq(secCount--).css({
+            //                         opacity: 0
+            //                     })
+            //                 });
+            //             } else {
+            //                 //scroll down
+            //                 $('.sec-4 .inner-wrap').stop().animate({scrollTop: '+=' + $(window).height()}, 500, function () {
+            //                     $('.sec-4 .sub-sec').eq(++secCount).css({
+            //                         opacity: 1
+            //                     })
+            //                 });
+            //             }
+            //
+            //             //prevent page fom scrolling
+            //             return false;
+            //         }else{
+            //             console.log('end secCount', secCount)
+            //             $('.sec-4 .inner-wrap').scrollTop(0).off('mousewheel.inner-scroll');
+            //             $('.sec-4 .inner-wrap .sub-sec').removeAttr('style');
+            //             $('.sec-4 .inner-wrap').removeClass('fixed');
+            //             $('body').removeClass('overflow-hidden');
+            //
+            //
+            //
+            //         }
+            //
+            //     });
+            // }else{
+            //     // 서브섹션 카운트용 변수 초기화
+            //     if(secCount == $('.sec-4 .sub-sec').length-2){
+            //
+            //         $(window).scrollTop(arrSectionOffsetTop[4]);
+            //     }
+            //     secCount =0;
+            // }
         };
 
 
