@@ -50,39 +50,39 @@ define(['app'], function (App) {
             //4번째 섹션에 들어오면 윈도우 스크롤 잠금, 내부 커스텀 스크롤 사용
             if(scrollTop > arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[4]){
                 //$(window).scrollTop(arrSectionOffsetTop[3]); // 네번째 섹션에 걸리도록 스냅 적용
-                if(!$('.sec-4').hasClass('fixed')){
-                    $('.sec-4').addClass('fixed');
-                    console.log('before', arrSectionOffsetTop)
-                    _setSectionOffsetTop();
-                    console.log('after', arrSectionOffsetTop)
-                }
+                // if(!$('.sec-4').hasClass('fixed')){
+                //     $('.sec-4').addClass('fixed');
+                //     console.log('before', arrSectionOffsetTop)
+                //     _setSectionOffsetTop();
+                //     console.log('after', arrSectionOffsetTop)
+                // }
 
 
 
-                if(scrollTop <= arrSectionOffsetTop[3] + $(window).height()*0.5){
-                    console.log('1st')
-                    $('.sec-4 .sub-sec').eq(0).fadeIn(0, function(){
-                        $('.sec-4 .sub-sec').eq(1).removeAttr('style')
-                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
-                    });
-                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*0.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1){
-                    console.log('2nd')
-                    $('.sec-4 .sub-sec').eq(1).fadeIn(0, function(){
-                        $('.sec-4 .sub-sec').eq(0).removeAttr('style')
-                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
-                    });
-                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1.5){
-                    console.log('3rd')
-                    $('.sec-4 .sub-sec').eq(2).fadeIn(0, function(){
-                        $('.sec-4 .sub-sec').eq(1).removeAttr('style')
-                        $('.sec-4 .sub-sec').eq(3).removeAttr('style')
-                    });
-                }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*2){
-                    console.log('4th')
-                    $('.sec-4 .sub-sec').eq(3).fadeIn(0, function(){
-                        $('.sec-4 .sub-sec').eq(2).removeAttr('style')
-                    });
-                }
+                // if(scrollTop <= arrSectionOffsetTop[3] + $(window).height()*0.5){
+                //     console.log('1st')
+                //     $('.sec-4 .sub-sec').eq(0).fadeIn(0, function(){
+                //         $('.sec-4 .sub-sec').eq(1).removeAttr('style')
+                //         $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                //     });
+                // }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*0.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1){
+                //     console.log('2nd')
+                //     $('.sec-4 .sub-sec').eq(1).fadeIn(0, function(){
+                //         $('.sec-4 .sub-sec').eq(0).removeAttr('style')
+                //         $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                //     });
+                // }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*1.5){
+                //     console.log('3rd')
+                //     $('.sec-4 .sub-sec').eq(2).fadeIn(0, function(){
+                //         $('.sec-4 .sub-sec').eq(1).removeAttr('style')
+                //         $('.sec-4 .sub-sec').eq(3).removeAttr('style')
+                //     });
+                // }else if(scrollTop > arrSectionOffsetTop[3] + $(window).height()*1.5 && scrollTop <= arrSectionOffsetTop[3] + $(window).height()*2){
+                //     console.log('4th')
+                //     $('.sec-4 .sub-sec').eq(3).fadeIn(0, function(){
+                //         $('.sec-4 .sub-sec').eq(2).removeAttr('style')
+                //     });
+                // }
             }else{
                 $('.sec-4').removeClass('fixed');
                 $('.sec-4 .sub-sec').removeAttr('style')

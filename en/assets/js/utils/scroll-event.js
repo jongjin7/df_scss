@@ -18,17 +18,3 @@ const ScrollEvent = (function(){
         created: _created
     }
 })();
-
-/*
-Vue.directive('scroll', {
-    inserted: function (el, binding) {
-        let f = function (evt) {
-            if (binding.value(evt, el)) {
-                //window.removeEventListener('scroll', f);
-                EventBus.$off(evt, f);
-            }
-        };
-        //window.addEventListener('scroll', f);
-        EventBus.$on(EventBus.CHANGE_SCROLL, f);
-    }
-});*/
