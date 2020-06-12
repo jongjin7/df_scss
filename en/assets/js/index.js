@@ -3,7 +3,12 @@ requirejs.config({
     paths: {
         jquery:'vendors/jquery-3.4.1.min',
         swiper:'vendors/swiper/swipe',
-        app:'./js/interactive/App'
+        TweenMax: 'vendors/gsap/TweenMax.min',
+        TweenLite: 'vendors/gsap/TweenLite.min',
+        Gsap:'vendors/gsap/gsap.min',
+        TweenScrollTo:'vendors/gsap/ScrollToPlugin.min',
+        TweenScrollTo3x:'vendors/gsap/ScrollToPlugin.3x.min',
+        app:'./js/interactive/App',
     }
 });
 
@@ -17,7 +22,7 @@ const pathUtil = './js/utils/';
 const utilFiles = ['DF.utils', 'DF.validator','resize-event','scroll-event'];
 
 const pathInteractive = './js/interactive/';
-const appFiles = ['frame', 'ui.sub'];
+const appFiles = ['frame', 'content_main','content_company'];
 
 
 

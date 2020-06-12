@@ -39,7 +39,9 @@ window.GlobalVars = {
     THEME:{
         COLOR_A_WHITE: 'white',
         COLOR_A_BLACK: 'black',
-    }
+    },
+
+    TweenMax:null,
 
 };
 

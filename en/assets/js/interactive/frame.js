@@ -28,7 +28,7 @@ define(['app'], function (App) {
         };
 
         const _onScrollHandler = function(e, $val){
-            console.log('_onScrollHandler')
+            //console.log('_onScrollHandler')
             if(typeof e !== "undefined") {
                 scrollTop = Math.round($val);
             }else{
@@ -91,52 +91,7 @@ define(['app'], function (App) {
 
 
 
-            //console.log('scrollTop', arrSectionOffsetTop[3], scrollTop)
-            // if(scrollTop >= arrSectionOffsetTop[3] && scrollTop < arrSectionOffsetTop[4]*0.8){
-            //     console.log('4번째 섹션 접근, 스크롤 잠금')
-            //     $('body').addClass('overflow-hidden');
-            //     $('.sec-4 .inner-wrap').addClass('fixed');
-            //
-            //     $('.sec-4 .inner-wrap').on('mousewheel.inner-scroll', function(e) {
-            //         if(secCount >= 0 && secCount < $('.sec-4 .sub-sec').length-1 ){
-            //             if (e.originalEvent.deltaY < 0) {
-            //                 //scroll up
-            //                 $('.sec-4 .inner-wrap').stop().animate({scrollTop: '-=' + $(window).height()}, 500, function () {
-            //                     $('.sec-4 .sub-sec:not(:first-child)').eq(secCount--).css({
-            //                         opacity: 0
-            //                     })
-            //                 });
-            //             } else {
-            //                 //scroll down
-            //                 $('.sec-4 .inner-wrap').stop().animate({scrollTop: '+=' + $(window).height()}, 500, function () {
-            //                     $('.sec-4 .sub-sec').eq(++secCount).css({
-            //                         opacity: 1
-            //                     })
-            //                 });
-            //             }
-            //
-            //             //prevent page fom scrolling
-            //             return false;
-            //         }else{
-            //             console.log('end secCount', secCount)
-            //             $('.sec-4 .inner-wrap').scrollTop(0).off('mousewheel.inner-scroll');
-            //             $('.sec-4 .inner-wrap .sub-sec').removeAttr('style');
-            //             $('.sec-4 .inner-wrap').removeClass('fixed');
-            //             $('body').removeClass('overflow-hidden');
-            //
-            //
-            //
-            //         }
-            //
-            //     });
-            // }else{
-            //     // 서브섹션 카운트용 변수 초기화
-            //     if(secCount == $('.sec-4 .sub-sec').length-2){
-            //
-            //         $(window).scrollTop(arrSectionOffsetTop[4]);
-            //     }
-            //     secCount =0;
-            // }
+
         };
 
 

@@ -38,18 +38,17 @@ if (typeof window.GlobalEvent == 'undefined' || !window.GlobalEvent) {
 /*=========================================================== [ App Start ] =======================================================================*/
 
 // Module Loading!
-define(['jquery','swiper'], function ($, Swiper) {
+define(['jquery','swiper', 'TweenMax'], function ($, Swiper, Gsap) {
 
     const Common = (function(ns){
         var _init = function(){
             ScrollEvent.created();
             ResizeEvent.created();
 
+            //Gsap.gsap.registerPlugin(TS);
             ns.ui.main.init();
-            ns.ui.sub.init();
-
-
-
+            ns.content.main.init();
+            ns.content.company.init(Swiper)
 
         };
 

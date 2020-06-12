@@ -141,6 +141,7 @@
                             }
 
                             section{
+                                position:relative;
                                 background-color: lightgray;
                                 padding:10px;
                                 height:100vh;
@@ -148,6 +149,15 @@
                                 scroll-snap-align: start;
 
                             }
+
+                            section:not(:first-child){
+                                display: none;
+                            }
+                            section:not(:first-child) .inner-wrap{
+                                font-size: 64px;
+                                color: gold;
+                            }
+
                             section:nth-child(even){
                                 background-color: #9E9E9E;
                             }
@@ -157,6 +167,15 @@
                                 justify-content: center;
                                 align-items: center;
                                 background: #fff;
+                            }
+
+                            .sec-1 .pannel{
+                                display: block;
+                                position: absolute; left:0; top:0;
+                                z-index: 100;
+                                width:100%; height:100%;
+                                background-color: rgba(210,222, 100, 0.3);
+                                content:'';
                             }
 
                             .sec-4{
@@ -212,14 +231,8 @@
                                 background: salmon;
                             }
 
-                            /* section임시 숨김*/
-                            .sec-1, .sec-3, .sec-4, .sec-5{
-                                display: none;
-                            }
-                            section:not(:first-child) .inner-wrap{
-                                font-size: 64px;
-                                color: gold;
-                            }
+
+
 
                             header .inner-wrap, footer{
 
@@ -274,6 +287,10 @@
                                 footer{
                                     display: flex;
                                 }
+                            }
+
+                            footer{
+                                display: none;
                             }
 
 
@@ -353,11 +370,13 @@
                             <!-- Add Pagination -->
                             <div class="swiper-pagination"></div>
                         </div>
+
+                        <div class="pannel"></div>
                     </div>
                 </section>
                 <section id="main-sec-2" class="sec-2">
                     <div class="inner-wrap">#2
-                        <button type="button" onclick="showPopup()">팝업 오픈</button>
+                        <button type="button" onclick="App.content.main.show_pop()">팝업 오픈</button>
                     </div>
                 </section>
                 <section id="main-sec-3" class="sec-3"><div class="inner-wrap">#3</div></section>
@@ -393,7 +412,7 @@
                         팝업 내용<br>
 
                     </p>
-                    <button type="button" onclick="hidePopup()">팝업 닫기</button>
+                    <button type="button" onclick="App.content.main.hide_pop()">팝업 닫기</button>
 
                 </div>
             </div>
@@ -404,71 +423,11 @@
     </div>
 
     <script data-main="assets/js/index" src="./assets/vendors/require.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>-->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>-->
     <script>
 
-            function showPopup(){
-                $('main').addClass('show');
-                $('.popup').show();
-
-                //setTimeout(function(){
-                    let scrollTop;
-
-                    $(window).on('scroll.pop', function(e){
-                        scrollTop = Math.round($(window).scrollTop());
-
-                        let value = scrollTop / $('.popup .content').offset().top +1;
-                        $('.popup .img').css({
-                            transform: `scale(${value})`
-                        });
-
-                        if(scrollTop >=0 && scrollTop < $(window).height()){
-                            if(!$('.popup .img').hasClass('fixed')){
-                                $('.popup .img').addClass('fixed');
-                            }
-                        }else{
-                            if($('.popup .img').hasClass('fixed')){
-                                $('.popup .img').removeClass('fixed');
-                            }
-                        }
-                    });
-
-
-                    var $window = $(window);        //Window object
-
-                    var scrollTime = 1.2;           //Scroll time
-                    var scrollDistance = 170;       //Distance. Use smaller value for shorter scroll and greater value for longer scroll
-
-                    $window.on("mousewheel.pop DOMMouseScroll.pop", function(event){
-
-                        event.preventDefault();
-
-                        var delta = event.originalEvent.deltaY/120 || -event.originalEvent.detail/3;
-                        var finalScroll = scrollTop - parseInt(delta*scrollDistance);
-
-                        console.log('finalScroll', scrollTop, finalScroll, delta, Power1.easeOut)
-                        TweenMax.to($window, scrollTime, {
-                            scrollTo : { y: finalScroll, autoKill:true },
-                            ease: Power1.easeOut,   //For more easing functions see https://api.greensock.com/js/com/greensock/easing/package-detail.html
-                            autoKill: true,
-                            overwrite: 5
-                        });
-
-                    });
-
-
-                //},1000)
-            }
-
-            function hidePopup(){
-                $('main').removeClass('show');
-                $('.popup').hide();
-                $('.popup .img').removeClass('fixed').removeAttr('style');
-                $(window).off('scroll.pop');
-                $(window).off("mousewheel.pop DOMMouseScroll.pop");
-            }
 
 
 
