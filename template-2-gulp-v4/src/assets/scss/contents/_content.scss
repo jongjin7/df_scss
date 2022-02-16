@@ -1,0 +1,12 @@
+main{
+  div{
+    border: 2px solid gray;
+    padding: 8px;
+
+    & > p{
+      background-color: #0c5460;
+      color: white;
+      color: silver;
+    }
+  }
+}
