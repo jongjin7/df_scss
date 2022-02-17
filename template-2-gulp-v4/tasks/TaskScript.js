@@ -25,7 +25,7 @@ function buildJS($source_path, $target_path) {
           .pipe($.newer({dest: $target_path}))
           .pipe(dest($target_path))
           .pipe($.livereload({stream: true}));
-    }, 2500)
+    }, 500)
   } else{
     setTimeout(() => {
       src($source_path)
@@ -34,7 +34,7 @@ function buildJS($source_path, $target_path) {
           .pipe($.size({gzip: true, showFiles: true}))
           .pipe(dest($target_path))
       //.pipe($.filter("**/*.js"))
-    }, 2000)
+    }, 5000)
   }
 }
 

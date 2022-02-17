@@ -22,9 +22,6 @@ const resData = {
   }
 }
 
-let isDev = true;
-
-
 function generateHTML($target_path) {
   $.fancyLog("-> Generate Html", $target_path, cfg.filelist.html, cfg.buildFileNames.aliasKeyword);
   return src(cfg.filelist.html)
@@ -51,6 +48,7 @@ function generateHTML($target_path) {
       })
       .pipe($.prettyHtml())
       .pipe(dest($target_path))
+      .pipe($.livereload());
 }
 
 

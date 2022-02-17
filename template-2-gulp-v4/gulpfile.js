@@ -8,17 +8,21 @@ const {
 } = require('./presets/presetConstant');
 
 const {htmlDev, htmlProd} = require('./tasks/TaskHTML');
-const {jsDev, jsProd, vendorJS} = require('./tasks/TaskScript');
+const {jsDev, jsProd} = require('./tasks/TaskScript');
 const {CssDev, CssProd, SCSS_Compile} = require('./tasks/TaskCSS');
-const {copyDev, copyProd, copyImg} = require('./tasks/TaskCopyAssets');
+const {copyDev, copyProd, copyImg, copyRootIndex} = require('./tasks/TaskCopyAssets');
 
 
 // The `clean` function is not exported so it can be considered a private task.
 // It can still be used within the `series()` composition.
 function clean($target_dir, cb) {
-  console.log('clean!!')
-  del($target_dir);
-  cb();
+  return new Promise(resolve => {
+    del.sync($target_dir)
+    resolve();
+  }).then(()=>{
+    cb();
+    console.log('clean!!')
+  })
 }
 
 function cleanTaskDev(cb){
@@ -45,13 +49,15 @@ function devServer() {
 }
 
 function watchTask(cb) {
+  $.livereload.listen();
   watch(WORK_SRC + cfg.paths.src.scss + "**/**/**/**/*.scss", SCSS_Compile);
   watch(WORK_SRC + cfg.paths.src.js + "**/**/*.js", jsDev);
-  watch(WORK_SRC + cfg.filelist.imgs, copyImg);
-  watch(WORK_SRC + cfg.paths.src.html + "**/**/*.html", htmlDev);
+  watch(cfg.filelist.imgs, copyImg);
+  watch(cfg.filelist.html, htmlDev);
+  watch(WORK_SRC +'index.html', copyRootIndex);
   cb();
 }
 
 exports.clean = series(cleanAllTask);
-exports.build = series(cleanTaskProd, vendorJS, parallel(jsProd, htmlProd, CssProd, copyProd));
-exports.default = series(cleanTaskDev, copyDev, parallel(htmlDev, jsDev, CssDev), devServer, watchTask);
+exports.build = series(cleanTaskProd, parallel(jsProd, htmlProd, CssProd, copyProd));
+exports.default = series(cleanTaskDev, parallel(copyDev, htmlDev, jsDev, CssDev), watchTask, devServer);

@@ -1,4 +1,4 @@
-const { series, src, dest, lastRun } = require('gulp');
+const {series, src, dest, lastRun} = require('gulp');
 const {cfg} = require('../presets/config');
 const imagemin = require('gulp-imagemin'); // version 7.1사용
 // @ref: https://www.npmjs.com/package/gulp-imagemin
@@ -22,13 +22,16 @@ function copyTask($source_src, $target_path) {
   $.fancyLog('-> copy:', $source_src, $target_path)
   return src($source_src)
       .pipe($.plumber({errorHandler: ON_ERROR}))
-      .pipe(dest($target_path));
+      .pipe($.newer('.'))
+      .pipe(dest($target_path))
+      .pipe($.livereload({stream: (!/fonts/.test($target_path))}));
 }
 
 function imageTask($source_src, $target_path) {
   $.fancyLog('-> image optimize:', $source_src, $target_path)
-  return src($source_src, { since: lastRun(imageTask) })
+  return src($source_src, {since: lastRun(imageTask)})
       .pipe($.plumber({errorHandler: ON_ERROR}))
+      .pipe($.newer('.'))
       .pipe(imagemin([
         imagemin.gifsicle({interlaced: true}),
         imagemin.mozjpeg({quality: 75, progressive: true}),
@@ -44,33 +47,42 @@ function imageTask($source_src, $target_path) {
 }
 
 
-function copyImg(dist){
+function copyImg(params) {
   // 심플 이미지 복사
-  copyTask(cfg.filelist.imgs, dist);
+  const targetPath = typeof params === 'function' ? DIST_DEV_IMG_DIR : params;
+  copyTask(cfg.filelist.imgs, targetPath);
 
   // 이미지 최적화
-  //imageTask(cfg.filelist.imgs, dist);
+  //imageTask(cfg.filelist.imgs, targetPath);
+  if (typeof params === 'function') params();
+}
+
+function copyRootIndex(params) {
+  const targetPath = typeof params === 'function' ? DIST_DEV_BASE_DIR : params;
+  copyTask(WORK_SRC + 'index.html', targetPath);
+  if (typeof params === 'function') params();
 }
 
 
-function copyDev(cb){
+function copyDev(cb) {
   isDev = true;
   copyTask(cfg.filelist.fonts, DIST_DEV_FONT_DIR);
   copyImg(DIST_DEV_IMG_DIR);
-  copyTask(WORK_SRC +'index.html', DIST_DEV_BASE_DIR);
+  copyRootIndex(DIST_DEV_BASE_DIR);
   cb();
 }
 
-function copyProd(cb){
+function copyProd(cb) {
   isDev = false;
   copyTask(cfg.filelist.fonts, DIST_PRODUCT_FONT_DIR);
   copyImg(DIST_PRODUCT_IMG_DIR);
-  copyTask(WORK_SRC +'index.html', DIST_PRODUCT_BASE_DIR);
+  copyRootIndex(DIST_PRODUCT_BASE_DIR);
   cb();
 }
 
 module.exports = {
   copyDev,
   copyProd,
-  copyImg
+  copyImg,
+  copyRootIndex
 };
