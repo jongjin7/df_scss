@@ -30,7 +30,7 @@ const cfg = {
       "./node_modules/bootstrap/dist/css/bootstrap.min.css"
     ],
     "workScss": [
-      "./src/assets/scss/global.scss",
+      "./src/assets/scss/common.scss",
       "./src/assets/scss/app.scss"
     ],
     "vendorJs": [

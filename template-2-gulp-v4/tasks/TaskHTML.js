@@ -17,7 +17,7 @@ const resData = {
     commonJs: DIST_COMMON_JS_NAME,
     modulesJs: getJsModuleFileNames(),
     vendorCSS: DIST_VENDORS_CSS_NAME,
-    globalCSS: cfg.buildFileNames.aliasKeyword + '.' +'global.css',
+    commonCSS: cfg.buildFileNames.aliasKeyword + '.' +'common.css',
     appCSS: cfg.buildFileNames.aliasKeyword + '.' + 'app.css'
   }
 }
