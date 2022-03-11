@@ -1,0 +1,65 @@
+{# 참조하는 상대적 경로 #}
+{% set RELATIVE_PATH = '../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>서브 #2</title>
+
+    {% import "inc_common_head.html" as head -%}
+    {{ head.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</head>
+<body>
+
+{% include "inc_skip.html" %}
+
+<div id="app">
+    <div class="wrapper">
+        {% import 'inc_header.html' as nav %}
+        {{ nav.active([5]) }} <!-- 메뉴 활성화시 배열값 전달, 비활성화시 0 -->
+
+        <main id="main-container">
+            <div class="inner-wrap">
+                <!-- Content Area -->
+                <h1>그리드 시스템</h1>
+
+                <div class="example-content mt-2">
+                    <style>
+                        .example-content .grid-box{
+                            width: 50%;
+                            padding:10px;
+                            border:4px solid #efefef;
+                        }
+                        .example-content .grid-item {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 10rem; height:10rem;
+                            margin:0 1em;
+                            color: #6c757d;
+                            background-color: #f8f9fa;
+                            border: 1px solid #dee2e6;
+                        }
+                    </style>
+
+                    <h2 class="h6">그리드 타입: Flex</h2>
+                    <div class="grid-box d-flex">
+                        <div class="grid-item">아이템 #1</div>
+                        <div class="grid-item">아이템 #2</div>
+                        <div class="grid-item">아이템 #3</div>
+
+                    </div>
+                </div>
+                <!-- //Content Area -->
+            </div>
+        </main>
+
+        {% include "inc_footer.html" %}
+    </div>
+</div>
+
+
+{% import "inc_scripts.html" as scripts -%}
+{{ scripts.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</body>
+</html>

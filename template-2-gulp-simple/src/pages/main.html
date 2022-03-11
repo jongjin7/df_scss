@@ -1,0 +1,63 @@
+{# 참조하는 상대적 경로 #}
+{% set RELATIVE_PATH = '../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>메인</title>
+
+    {% import "inc_common_head.html" as head -%}
+    <!-- resourceFiles:GulpTask에서 떨쳐주는 데이타 -->
+    {{ head.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</head>
+<body>
+
+{% include "inc_skip.html" %} <!-- 스킵 메뉴 위쪽으로 링크 요소는 위치할 수 없음 -->
+
+<div id="app">
+    <div class="wrapper">
+        {% import 'inc_header.html' as nav %}
+        {{ nav.active(0) }} <!-- 메뉴 활성화시 배열값 전달, 비활성화시 0 -->
+
+        <main id="main-container">
+            <div class="inner-wrap">
+                <!-- Content Area -->
+                <h1>프로젝트 메인 페이지</h1>
+                <div class="sample-div">
+                    <h2>Gulp HTML 템플릿 모듈(mozilla nunjucksRender)을 이용한 Static page 생성</h2>
+                    <p>ref=> https://mozilla.github.io/nunjucks/api.html</p>
+
+                    <h3>크크섬의 비밀은 봤나요? 이거 아는 사람? </h3>
+                    <h2>Posts HTML 출력 예제</h2>
+
+                    {% set items = [
+                    { name: 'james', type: 'green' },
+                    { name: 'john', type: 'blue' },
+                    { name: 'jim', type: 'blue' },
+                    { name: 'jessie', type: 'green' }
+                    ] %}
+
+                    {% for type, items in items | groupby("type") %}
+                    <b>{{ type }}</b> :
+                    <div>
+                        <p>
+                            {% for item in items %}
+                            {{ item.name }}
+                            {% endfor %}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- //Content Area -->
+            </div>
+        </main>
+
+        {% include "inc_footer.html" %}
+    </div>
+</div>
+
+{% import "inc_scripts.html" as scripts -%}
+{{ scripts.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+
+</body>
+</html>

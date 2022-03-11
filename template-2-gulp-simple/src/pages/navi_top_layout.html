@@ -1,0 +1,39 @@
+{# 참조하는 상대적 경로 #}
+{% set RELATIVE_PATH = '../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>서브 #2</title>
+
+    {% import "inc_common_head.html" as head -%}
+    {{ head.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</head>
+<body>
+
+{% include "inc_skip.html" %}
+
+<div id="app">
+    <div class="wrapper">
+        {% import 'inc_header.html' as nav %}
+        {{ nav.active([0]) }} <!-- 메뉴 활성화시 배열값 전달, 비활성화시 0 -->
+
+        <main id="main-container">
+            <div class="inner-wrap">
+                <!-- Content Area -->
+                <h1>상단 메뉴형 레이아웃</h1>
+
+                <div class="sample-div mt-2">서브페이지 본문 내용입니다.</div>
+                <!-- //Content Area -->
+            </div>
+        </main>
+
+        {% include "inc_footer.html" %}
+    </div>
+</div>
+
+
+{% import "inc_scripts.html" as scripts -%}
+{{ scripts.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</body>
+</html>

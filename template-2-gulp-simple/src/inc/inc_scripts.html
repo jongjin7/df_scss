@@ -1,0 +1,10 @@
+{% macro assetFiles(path, resourcesFiles) -%}
+<!-- scripts for site -->
+<script type="text/javascript" src="{{ path }}assets/js/{{ resourcesFiles.commonJs }}"></script>
+{% for item in resourcesFiles.contentJs %}
+<script type="text/javascript" src="{{ path }}assets/js/{{ item }}"></script>
+{%- endfor %}
+{%- endmacro %}
+
+
+

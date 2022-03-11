@@ -1,0 +1,55 @@
+// 폰트명 정의
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875 !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 500 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Custom Style
+
+// body
+$body-min-width: 1440px;
+$body-max-width: null;
+
+// fonts
+$font-name: "Noto Sans KR";
+
+// colors
+$body-bg:white;
+
+// color-chips
+$default: #686868;
+
+// keyword Colors
+$black: #000;
+$white: #fff;
+$light: #ECECECFF !default;
+$dark: #1A1A1AFF !default;
+$primary: #0097F6FF !default;
+$secondary: #0ED058FF;
+$success: $secondary !default;
+$warning: #FFB300FF !default;
+$danger: #FF2727FF !default;
+$special: #830ED0FF !default;
+
+

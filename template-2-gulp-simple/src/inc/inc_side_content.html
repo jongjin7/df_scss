@@ -1,0 +1,107 @@
+{% macro active(activePage = null) -%}
+<div class="side-container">
+  <div class="inner-side">
+    <div class="nav-wrap">
+      <!-- 네비게이션 컴포넌트 -->
+      <nav class="navigation nav-common">
+        <ul class="nav-list">
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 0 %} active {% endif %}">
+              <span class="text">naviSection#1 Depth1-1</span>
+            </a>
+          </li>
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 1 %} active {% endif %}">
+              <span class="text">naviSection#2 Depth1-2</span>
+            </a>
+            <!-- 서브메뉴 -->
+            <div class="sub-menu-wrap">
+              <ul class="sub-menu depth-2">
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {%- if activePage[0] == 1 and activePage[1] == 0 %} active {%- endif %}">
+                    <span class="text">서브메뉴 2-1</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {%- if activePage[0] == 1 and activePage[1] == 1 %} active {%- endif %}">
+                    <span class="text">서브메뉴 2-2</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 2 %} active {% endif %}">
+              <span class="text">naviSection#1 Depth1-3</span>
+            </a>
+            <div class="sub-menu-wrap">
+              <ul class="sub-menu depth-2">
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {% if activePage[0] == 2 and activePage[1] == 0 %} active {% endif %}">
+                    <span class="text">서브메뉴 3-1</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {% if activePage[0] == 2 and activePage[1] == 1 %} active {% endif %}">
+                    <span class="text">서브메뉴 3-2</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {% if activePage[0] == 2 and activePage[1] == 2 %} active {% endif %}">
+                    <span class="text">서브메뉴 3-3</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <!-- // 네비게이션 컴포넌트 -->
+
+      <!-- 네비게이션 컴포넌트 -->
+      <nav class="navigation nav-other">
+        <ul class="nav-list">
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 11 %} active {% endif %}">
+              <span class="text">naviSection#2 Depth1-1</span>
+            </a>
+          </li>
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 12 %} active {% endif %}">
+              <span class="text">naviSection#2 Depth1-2</span>
+            </a>
+            <!-- 서브메뉴 -->
+            <div class="sub-menu-wrap">
+              <ul class="sub-menu depth-2">
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {% if activePage[0] == 11 and activePage[1] == 0 %} active {% endif %}">
+                    <span class="text">서브메뉴 2-1</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href=""
+                     class="nav-link depth-2-link {% if activePage[0] == 11 and activePage[1] == 1 %} active {% endif %}">
+                    <span class="text">서브메뉴 2-2</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item depth-1">
+            <a href="" class="nav-link depth-1-link {% if activePage[0] == 13 %} active {% endif %}">
+              <span class="text">naviSection#3 Depth1-3</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // 네비게이션 컴포넌트 -->
+    </div>
+  </div>
+</div>
+{% endmacro %}

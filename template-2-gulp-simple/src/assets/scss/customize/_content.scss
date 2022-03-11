@@ -1,0 +1,64 @@
+body{
+  // SCSS Comment!
+  header {
+    /* CSS comment */
+    .site-logo{
+      a{
+        color: #6363e7;
+        font-size: 20px;
+        text-decoration: underline;
+
+        &:hover{
+          color: blue;
+        }
+      }
+    }
+    .nav{
+      .gnb{
+        display: flex;
+        padding:10px;
+
+        a{
+          display: block;
+          border: 1px solid green;
+          font-size: 16px;
+          padding:10px;
+          color:black;
+
+          &.active{
+            font-weight: normal;
+            color: red;
+          }
+        }
+      }
+    }
+  }
+
+  main{
+    .page-title{
+      font-size: 24px;
+      color: black
+    }
+
+    .example-content{
+      margin-top: 8px;
+    }
+
+    .sample-div{
+      border: 2px solid gray;
+      padding: 8px;
+
+      strong{
+        color:black;
+      }
+
+      div > p{
+        margin-top: 4px;
+        padding: 10px;
+        background-color: #0c5460;
+        color: white;
+        font-size: percentage(24 / 16);
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{# 참조하는 상대적 경로 #}
+{% set RELATIVE_PATH = '../' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>서브 #1</title>
+
+    {% import "inc_common_head.html" as head -%}
+    {{ head.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</head>
+<body>
+
+{% include "inc_skip.html" %}
+
+<div id="app">
+    <div class="wrapper">
+        {% import 'inc_header.html' as nav %}
+        {{ nav.active([3]) }} <!-- 메뉴 활성화시 배열값 전달, 비활성화시 0 -->
+
+        <main id="main-container">
+            <div class="inner-wrap">
+                <!-- Content Area -->
+                <div class="container-fluid">
+                    <h1 class="page-title">모달 팝업 예제</h1>
+                    <div class="example-content">
+                        <div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                기본 모달
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            기본 모달 팝업
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                                바디 스크롤 모달
+                            </button>
+                            <!-- Scrollable modal -->
+                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="mb-2">What follows is just some placeholder text for this modal dialog. You just gotta ignite the light and let it shine! Come just as you are to me. Just own the night like the 4th of July. Infect me with your love and fill me with your poison. Come just as you are to me. End of the rainbow looking treasure.</p>
+                                            <p class="mb-2">I can't sleep let's run away and don't ever look back, don't ever look back. I can't sleep let's run away and don't ever look back, don't ever look back. Yes, we make angels cry, raining down on earth from up above. I'm walking on air (tonight). Let you put your hands on me in my skin-tight jeans. Stinging like a bee I earned my stripes. I went from zero, to my own hero. Even brighter than the moon, moon, moon. Make 'em go, 'Aah, aah, aah' as you shoot across the sky-y-y! Why don't you let me stop by?</p>
+                                            <p class="mb-2">Boom, boom, boom. Never made me blink one time. Yeah, you're lucky if you're on her plane. Talk about our future like we had a clue. Oh my God no exaggeration. You're original, cannot be replaced. The girl's a freak, she drive a jeep in Laguna Beach. It's no big deal, it's no big deal, it's no big deal. In another life I would make you stay. I'm ma get your heart racing in my skin-tight jeans. I wanna walk on your wave length and be there when you vibrate Never made me blink one time.</p>
+                                            <p class="mb-2">We'd keep all our promises be us against the world. In another life I would be your girl. We can dance, until we die, you and I, will be young forever. And on my 18th Birthday we got matching tattoos. So open up your heart and just let it begin. 'Cause she's the muse and the artist. She eats your heart out. Like Jeffrey Dahmer (woo). Pop your confetti. (This is how we do) I know one spark will shock the world, yeah yeah. If you only knew what the future holds.</p>
+                                            <p class="mb-2">Sipping on Rosé, Silver Lake sun, coming up all lazy. It’s in the palm of your hand now baby. So we hit the boulevard. So make a wish, I'll make it like your birthday everyday. Do you ever feel already buried deep six feet under? It's time to bring out the big balloons. You could've been the greatest. Passport stamps, she's cosmopolitan. Your kiss is cosmic, every move is magic.</p>
+                                            <p class="mb-2">We're living the life. We're doing it right. Open up your heart. I was tryna hit it and quit it. Her love is like a drug. Always leaves a trail of stardust. The girl's a freak, she drive a jeep in Laguna Beach. Fine, fresh, fierce, we got it on lock. All my girls vintage Chanel baby.</p>
+                                            <p class="mb-2">Before you met me I was alright but things were kinda heavy. Peach-pink lips, yeah, everybody stares. This is no big deal. Calling out my name. I could have rewrite your addiction. She's got that, je ne sais quoi, you know it. Heavy is the head that wears the crown. 'Cause, baby, you're a firework. Like thunder gonna shake the ground.</p>
+                                            <p>Just own the night like the 4th of July! I’m gon’ put her in a coma. What you're waiting for, it's time for you to show it off. Can't replace you with a million rings. You open my eyes and I'm ready to go, lead me into the light. And here you are. I’m gon’ put her in a coma. Come on, let your colours burst. So cover your eyes, I have a surprise. As I march alone to a different beat. Glitter all over the room pink flamingos in the pool.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                                제목 고정/내부 스크롤
+                            </button>
+                            <!-- Scrollable modal -->
+                            <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="mb-2">Placeholder text for this demonstration of a vertically centered modal dialog.</p>
+                                            <p class="mb-2">In this case, the dialog has a bit more content, just to show how vertical centering can be added to a scrollable modal.</p>
+                                            <p class="mb-2">What follows is just some placeholder text for this modal dialog. Sipping on Rosé, Silver Lake sun, coming up all lazy. It’s in the palm of your hand now baby. So we hit the boulevard. So make a wish, I'll make it like your birthday everyday. Do you ever feel already buried deep six feet under? It's time to bring out the big balloons. You could've been the greatest. Passport stamps, she's cosmopolitan. Your kiss is cosmic, every move is magic.</p>
+                                            <p class="mb-2">We're living the life. We're doing it right. Open up your heart. I was tryna hit it and quit it. Her love is like a drug. Always leaves a trail of stardust. The girl's a freak, she drive a jeep in Laguna Beach. Fine, fresh, fierce, we got it on lock. All my girls vintage Chanel baby.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h2 class="h6">모달 사이즈별 적용</h2>
+                            <p class="mb-1">* 클래스 적용 대상: <span class="text-danger">modal-dialog</span></p>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Class</th>
+                                    <th>Modal max-width</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Small</td>
+                                    <td><code>.modal-sm</code></td>
+                                    <td><code>300px</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Default</td>
+                                    <td class="text-muted">None</td>
+                                    <td><code>500px</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Large</td>
+                                    <td><code>.modal-lg</code></td>
+                                    <td><code>800px</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Extra large</td>
+                                    <td><code>.modal-xl</code></td>
+                                    <td><code>1140px</code></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-size" data-size="sm">
+                                최소 사이즈 모달
+                            </button>
+                            <button type="button" class="btn btn-primary btn-size" data-size="md">
+                                중간 사이즈(기본)
+                            </button>
+                            <button type="button" class="btn btn-primary btn-size" data-size="lg">
+                                대형 사이즈 모달
+                            </button>
+                            <button type="button" class="btn btn-primary btn-size" data-size="xl">
+                                특대형 사이즈 모달
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalSize" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <span>현재 모달 사이즈 클래스:</span>
+                                                <strong class="modal-size text-danger"></strong>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Script -->
+                            <script>
+                                $('.btn-size').click(function(e){
+                                    console.log('data', $(this).data('size'))
+                                    $('#exampleModalSize .modal-dialog').removeClass('modal-sm modal-md modal-lg modal-xl')
+                                    $('#exampleModalSize .modal-dialog').addClass('modal-'+ $(this).data('size'))
+                                    $('#exampleModalSize .modal-dialog .modal-size').text('modal-'+ $(this).data('size'))
+                                    $('#exampleModalSize').modal('toggle')
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Content Area -->
+            </div>
+        </main>
+
+        {% include "inc_footer.html" %}
+    </div>
+</div>
+
+
+{% import "inc_scripts.html" as scripts -%}
+{{ scripts.assetFiles( RELATIVE_PATH, resourceFiles ) }}
+</body>
+</html>
